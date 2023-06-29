@@ -61,7 +61,7 @@ gem 'rails-i18n', '>= 7.0.1'
 gem 'simple_form'
 
 # User management and security
-#gem 'devise', '4.9.1'
+gem 'devise', '4.9.1'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
