@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-	before_action :authenticate_admin
+	before_action :authenticate_cashier, only: [:take]
+  before_action :authenticate_owner, only: [:statistics]
 
 	def statistics
     @inflows = Inflow.all

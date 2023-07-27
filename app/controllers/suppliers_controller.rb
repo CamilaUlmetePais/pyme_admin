@@ -1,6 +1,6 @@
 class SuppliersController < ApplicationController
   before_action :set_supplier, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin
+  before_action :authenticate_owner
 
   # POST /suppliers
   # POST /suppliers.json

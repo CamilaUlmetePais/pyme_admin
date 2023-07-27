@@ -1,7 +1,7 @@
 class SuppliesController < ApplicationController
 	before_action :set_supply, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token, only: [:mass_stock_update]
-  before_action :authenticate_admin
+  before_action :authenticate_supervisor, only: [:new, :create, :edit, :update, :destroy, :show]
 
   def create
     @supply = Supply.new(supply_params)

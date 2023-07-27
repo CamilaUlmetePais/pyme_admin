@@ -5,7 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-User.create!({email:"user@example.com", password: "password", password_confirmation: "password"})
+User.create!({email:"user1@example.com", password: "password", password_confirmation: "password", name: "Administradorx", role: 4})
+User.create!({email:"user2@example.com", password: "password", password_confirmation: "password", name: "Empleadx", role: 0})
+User.create!({email:"user3@example.com", password: "password", password_confirmation: "password", name: "Cajerx", role: 1})
+User.create!({email:"user4@example.com", password: "password", password_confirmation: "password", name: "Manager", role: 2})
+User.create!({email:"user5@example.com", password: "password", password_confirmation: "password", name: "Supervisorx", role: 3})
 supply1 = Supply.create!({name: "Queso", price: 80, unit: 0, stock: 100})
 supply2 = Supply.create!({name: "Huevos", price: 25, unit: 1, stock: 100})
 supply3 = Supply.create!({name: "Marineras", price: 50, unit: 1, stock: 100})
