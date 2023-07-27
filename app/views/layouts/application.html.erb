@@ -6,8 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= favicon_link_tag asset_path('logotype.png')%>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -15,6 +15,7 @@
     <!-- default rails css -->
     <!--main class="container mx-auto mt-28 px-5 flex"-->
     <main class="container">
+      <%= render 'shared/nav' %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
