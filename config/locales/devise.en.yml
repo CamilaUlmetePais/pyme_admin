@@ -54,7 +54,7 @@ en:
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
     views: 
-      signed_in_as: Signed in as
+      logged_in_as: Logged in as
       edit: Edit
       login: Log in
       logout: Log out

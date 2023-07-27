@@ -18,7 +18,7 @@
       <%# end %>
       <div class="inline-flex">
         <% if user_signed_in? %>
-          <%= I18n.t('devise.views.signed_in_as')%>  <%= current_user.email %>
+          <%= I18n.t('devise.views.logged_in_as')%>  <%= current_user.email %>
         <% else %>
           <%= I18n.t('devise.failure.unauthenticated') %>
         <% end %>

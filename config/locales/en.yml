@@ -9,7 +9,7 @@ en:
     attributes:
       inflows:
         total: Total
-        payment_method: Forma de pago
+        payment_method: Payment method
         created_at: Created at
         last_updated: Last updated at
       inflow_items:
@@ -22,7 +22,7 @@ en:
         title: Title
         due_date: Due Date
       outflows:
-        payment_method: Forma de pago
+        payment_method: Payment method
         items: Items
         notes: Notes
         paid: Paid
