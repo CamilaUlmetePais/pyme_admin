@@ -1,0 +1,38 @@
+<nav class="bg-indigo-900 w-screen text-white">
+  <div class="inline-flex align-middle mr-2">
+    <%= image_tag("logo.png", size:"50x50") %>
+  </div>
+
+  <div id="navbar-collapse" class="inline-flex">
+    <ul class="inline-flex align-middle space-x-4">
+      <li><%= link_to I18n.t('activerecord.models.inflow.other'), inflows_path %></li>
+      <li><%= link_to	I18n.t('activerecord.models.product.other'), products_path %></li>
+      <%# if !current_user.nil? && current_user.admin %>
+        <li><%= link_to	I18n.t('activerecord.models.outflow.other'), outflows_path %></li>
+        <li><%= link_to I18n.t('activerecord.models.supply.other'), supplies_path %></li>
+        <li><%= link_to I18n.t('activerecord.models.supplier.other'), suppliers_path %></li>
+        <li><%= link_to I18n.t('activerecord.models.notification.other'), notifications_path %>
+        <li><%= link_to I18n.t('activerecord.models.supply_product_link.other'), supply_product_links_path %></li>
+        <li><%= link_to I18n.t('views.headers.pages.take'), take_path %></li>
+        <li><%= link_to I18n.t('views.headers.pages.statistics'), statistics_path %></li>
+      <%# end %>
+      <div class="inline-flex">
+        <% if user_signed_in? %>
+          <%= I18n.t('devise.views.logged_in_as')%>  <%= current_user.email %>
+        <% else %>
+          <%= I18n.t('devise.failure.unauthenticated') %>
+        <% end %>
+      </div>
+      <div class="inline-flex space-x-4">
+        <% if user_signed_in? %>
+          <%= link_to I18n.t('devise.views.edit'), edit_user_registration_path, class: "dropdown-item" %>
+          <%= link_to I18n.t('devise.views.logout'), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <% else %>
+          <%= link_to I18n.t('devise.views.login'), new_user_session_path, class: "dropdown-item" %>
+          <%= link_to I18n.t('devise.views.sign_up'), new_user_registration_path, class: "dropdown-item" %>
+        <% end %>
+      </div>
+    </ul>
+  </div>
+
+</nav>
