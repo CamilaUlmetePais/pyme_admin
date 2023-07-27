@@ -33,7 +33,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-/config/environment_variables.rb
+/config/local_env.yml
 
 
 /app/assets/builds/*
