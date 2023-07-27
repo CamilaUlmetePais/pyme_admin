@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  enum role: [:employee, :cashier, :manager, :supervisor, :owner]
+  #enum role: [:employee, :cashier, :manager, :supervisor, :owner]
 
 end

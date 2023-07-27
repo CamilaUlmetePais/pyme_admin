@@ -1,5 +1,6 @@
 class InflowsController < ApplicationController
   before_action :set_inflow, only: [:show, :edit, :update, :destroy, :add_items, :expand]
+  before_action :authenticate_cashier, only: [:edit, :update, :destroy]
 
   def add_items
     # check that the items aren't empty and .push them onto the original inflow_items_attributes
