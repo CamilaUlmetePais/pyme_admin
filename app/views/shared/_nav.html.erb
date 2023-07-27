@@ -18,7 +18,7 @@
       <%# end %>
       <div class="inline-flex">
         <% if user_signed_in? %>
-          <%= I18n.t('devise.views.logged_in_as')%>  <%= current_user.email %>
+          <%= I18n.t('devise.views.logged_in_as')%>  <%= current_user.name %>
         <% else %>
           <%= I18n.t('devise.failure.unauthenticated') %>
         <% end %>
@@ -29,7 +29,7 @@
           <%= link_to I18n.t('devise.views.logout'), destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         <% else %>
           <%= link_to I18n.t('devise.views.login'), new_user_session_path, class: "dropdown-item" %>
-          <%= link_to I18n.t('devise.views.sign_up'), new_user_registration_path, class: "dropdown-item" %>
+          <%# link_to I18n.t('devise.views.sign_up'), new_user_registration_path, class: "dropdown-item" %>
         <% end %>
       </div>
     </ul>
