@@ -290,7 +290,7 @@ en:
     formats:
       default: "%a, %d/%m/%Y %H:%M:%S"
       long: "%d/%m/%Y, %H:%M:%S"
-      short: "%d/%m/%Y %H:%M"
+      short: "%d/%m/%y %H:%M"
     pm: pm
 
 
