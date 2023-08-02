@@ -19,7 +19,12 @@
     </div>
 
     <div>
-      <%= f.input :payment_method, collection: [['Cash', 0], ['Debit', 1], ['Credit', 2], ['PayPal', 3]],         selected: 0 %>
+      <%= f.input :payment_method, collection: [
+        [ I18n.t('views.body.payment_method.cash'), 0], 
+        [ I18n.t('views.body.payment_method.debit'), 1], 
+        [ I18n.t('views.body.payment_method.credit'), 2], 
+        [ I18n.t('views.body.payment_method.pay_pal'), 3]], 
+      selected: 0 %>
     </div>
     
     <div id="total">

@@ -13,6 +13,7 @@ class Supplier < ApplicationRecord
 		{supply_name: supply_name, supplier_name: self.name, expenses: expenses.sum('quantity')}
 	end
 
+	# Returns true if a supplier's account balance drops below the set notification threshold, and therefore a notification must be created to alert the user. 
   def notification?
     self.account_balance <= self.notification_threshold
   end

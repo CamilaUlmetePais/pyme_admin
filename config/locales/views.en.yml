@@ -36,6 +36,15 @@ en:
         show:
           history: Transactions history
           date: Created at
+        payment_method:
+          cash: Cash
+          debit: Debit
+          credit: Credit
+          pay_pal: Pay Pal
+        unit:
+          kg: kg
+          u: u
+          ars: $
       headers:
         edit: Edit %{model}
         add_items: Add items to %{model}
