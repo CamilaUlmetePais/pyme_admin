@@ -8,7 +8,7 @@ class Supply < ApplicationRecord
 	validates       :price, numericality: { greater_than: 0 }
 	validates       :name, uniqueness: { case_sensitive: false }
 
-	enum unit: [:kg, :u, :ars] # kg: 0, u: 1, ars: 2
+	enum unit: [:kg, :u, :ars]
 
   # Calculates Cost of Goods Sold
 	def cogs

@@ -36,6 +36,15 @@ es:
         show:
           history: Historial de transacciones
           date: Creado el
+        payment_method:
+          cash: Efectivo
+          debit: Débito
+          credit: Crédito
+          pay_pal: Mercado Pago
+        unit:
+          kg: kg
+          u: u
+          ars: $
       headers:
         edit: Editar %{model}
         add_items: Agregar ítems a %{model}

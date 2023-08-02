@@ -3,12 +3,13 @@ class Inflow < ApplicationRecord
 	has_many 											:inflow_items
 	accepts_nested_attributes_for :inflow_items, allow_destroy: true, reject_if: :all_blank
 	alias_attribute 							:items, :inflow_items
+	validates_presence_of					:payment_method
 
 	#scope :cash_scope, -> (value) { where('cash = ?', value) }
 	scope :date_range, -> (start_date, end_date) { where(
 		'created_at >= ? AND created_at <= ?', start_date, end_date) }
 
-	enum payment_method: [:cash, :debit, :credit, :pay_pal] # cash: 0, debit: 1, credit: 2, pay_pal: 3
+	enum payment_method: [:cash, :debit, :credit, :pay_pal] 
 
 	def generate_total
 		self.total = 0

@@ -7,7 +7,7 @@ class Product < ApplicationRecord
 	validates       :price, numericality: { greater_than: 0 }
 	validates       :name, uniqueness: { case_sensitive: false }
 
-	enum unit: [:kg, :u] # kg: 0, u: 1
+	enum unit: [:kg, :u]
 
 	def notification?
 		self.stock <= self.notification_threshold
