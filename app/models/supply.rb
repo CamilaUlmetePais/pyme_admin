@@ -22,7 +22,7 @@ class Supply < ApplicationRecord
 
 	def mass_stock_update(quantity)
 		value = self.stock - quantity
-		self.update_attributes(stock: value)
+		self.update(stock: value)
 	end
 
 	def units_bought
@@ -31,6 +31,6 @@ class Supply < ApplicationRecord
 
 	def update_stock(quantity)
 		value = self.stock + quantity
-		self.update_attributes(stock: value)
+		self.update(stock: value)
 	end
 end

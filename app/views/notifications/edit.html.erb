@@ -1,0 +1,31 @@
+<div>
+	<div>
+		<h1><%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.notification.one') ) %></h1>
+	</div>
+
+	<div>
+		<%= simple_form_for(@notification, as: :notification, html: { class: 'form-vertical' },
+	method: :patch, url: notification_path(@notification) ) do |f| %>
+			<%= f.error_notification %>
+			<%= f.input :title  %>
+			<%= f.input :text %>
+			<%= f.input :due_date, as: :datetime %>
+			<%= f.input :done %>
+			<%= f.button :submit %>
+		<% end %>
+	</div>
+	<br>
+
+	<div>
+		<div>
+			<button type="button">
+				<%= link_to I18n.t('helpers.buttons.show'), notification_path(@notification) %>
+			</button>
+		</div>
+		<div>
+			<button type="button">
+				<%= link_to I18n.t('helpers.buttons.back'), notifications_path %>
+			</button>
+		</div>
+	</div>
+</div>
