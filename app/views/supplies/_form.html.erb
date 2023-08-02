@@ -1,0 +1,17 @@
+<%= simple_form_for(@supply, html: {}) do |f| %>
+  <div>
+    <%= f.error_notification %>
+    <%= f.input :name  %>
+    <%= f.input :price %>
+    <%= f.input :unit, collection: [['Kg', 0], ['u', 1]], selected: 0, prompt: I18n.t('simple_form.prompts.defaults.unit') %>
+    <%= f.input :stock %>
+  </div>
+
+  <div>
+    <button type="button">
+      <%= link_to I18n.t('helpers.buttons.back'), supplies_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
+    </button>
+    <%= f.button :submit %>
+  </div>
+
+<% end %>
