@@ -31,9 +31,9 @@ class PagesController < ApplicationController
 		take_date unless take_params.nil?
 		@variables = {
 			inflow_total: @inflows.sum('total'),
-			outflow_total: @outflows.sum('total')
-    #   cash_inflows: @inflows.where(cash: true),
-		# 	cash_outflows: @outflows.where(cash: true),
+			outflow_total: @outflows.sum('total'),
+      cash_inflows: @inflows.where(payment_method: 0),
+			cash_outflows: @outflows.where(payment_method: 0)
 		 }
 	end
 
