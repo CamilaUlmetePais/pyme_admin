@@ -20,13 +20,13 @@ class Supplier < ApplicationRecord
   # Restores account_balance to its previous value when an outflow is deleted or updated.
   def restore_balance(outflow)
     new_balance = self.account_balance - (outflow.paid - outflow.total)
-    self.update_attributes(account_balance: new_balance)
+    self.update(account_balance: new_balance)
   end
 
 	# Takes an outflow's parameters and updates the corresponding supplier's account balance.
 	def update_balance(outflow)
 		new_balance = self.account_balance + (outflow.paid - outflow.total)
-    self.update_attributes(account_balance: new_balance)
+    self.update(account_balance: new_balance)
   end
 
 end
