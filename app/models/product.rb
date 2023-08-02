@@ -19,7 +19,7 @@ class Product < ApplicationRecord
 
 	def update_stock(quantity)
 		value = self.stock + quantity
-		self.update_attributes(stock: value)
+		self.update(stock: value)
 	end
 
 	def sales_total
