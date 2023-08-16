@@ -18,11 +18,11 @@
       </div>
       <div>
         <%= f.input :payment_method, collection: [
-          [ I18n.t('views.body.payment_method.cash'), 0], 
-          [ I18n.t('views.body.payment_method.debit'), 1], 
-          [ I18n.t('views.body.payment_method.credit'), 2], 
-          [ I18n.t('views.body.payment_method.pay_pal'), 3]], 
-        selected: 0 %>
+            [ I18n.t('views.body.payment_method.cash'), :cash], 
+            [ I18n.t('views.body.payment_method.debit'), :debit], 
+            [ I18n.t('views.body.payment_method.credit'), :credit], 
+            [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], 
+          selected: 0 %>
       </div>
     </div>
     <div>

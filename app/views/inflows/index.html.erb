@@ -19,12 +19,12 @@
         <%= f.input :created_at_from, id: 'created_at_from', placeholder: I18n.t('helpers.search.from')%>
         <%= f.input :created_at_to, id: 'created_at_to', placeholder: I18n.t('helpers.search.to') %>
         <%= f.input :payment_method, collection: [
-            [ I18n.t('views.body.payment_method.cash'), 0], 
-            [ I18n.t('views.body.payment_method.debit'), 1], 
-            [ I18n.t('views.body.payment_method.credit'), 2], 
-            [ I18n.t('views.body.payment_method.pay_pal'), 3]], 
+            [ I18n.t('views.body.payment_method.cash'), :cash], 
+            [ I18n.t('views.body.payment_method.debit'), :debit], 
+            [ I18n.t('views.body.payment_method.credit'), :credit], 
+            [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], 
           selected: 0 %>
-        <%= f.button :submit, I18n.t('helpers.buttons.search'), class: "btn-primary" %>
+        <%= f.button :submit, I18n.t('helpers.buttons.search') %>
     <% end %>
   </div>
 
@@ -69,10 +69,7 @@
               </button>
             </td-->
             <td>
-              <button type='button'>
-                <%= link_to I18n.t('helpers.buttons.destroy'), inflow,
-                  method: :delete, data: { confirm: I18n.t('helpers.buttons.are_you_sure') }%>
-              </button>
+              <%= button_to I18n.t('helpers.buttons.destroy'), inflow, method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }%>
             </td>
           </tr>
         <% end %>

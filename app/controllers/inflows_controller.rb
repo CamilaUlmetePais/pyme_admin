@@ -23,7 +23,6 @@ class InflowsController < ApplicationController
   end 
 
   # POST /inflows
-  # POST /inflows.json
   def create
     @inflow = Inflow.new(inflow_params)
     @inflow.total = generate_inflow_total(inflow_params)
@@ -51,7 +50,6 @@ class InflowsController < ApplicationController
   end
 
   # DELETE /inflows/1
-  # DELETE /inflows/1.json
   def destroy
     @inflow.restore_stock
     @inflow.destroy
@@ -76,7 +74,6 @@ class InflowsController < ApplicationController
   end
 
   # GET /inflows
-  # GET /inflows.json
   def index
     @inflows = Inflow.all.order(created_at: :desc).page(params[:page])
     search_dates unless search_params.nil?
@@ -95,7 +92,6 @@ class InflowsController < ApplicationController
   end
 
   # PATCH/PUT /inflows/1
-  # PATCH/PUT /inflows/1.json
   def update
     respond_to do |format|
       successful = false
@@ -121,8 +117,15 @@ class InflowsController < ApplicationController
   end
 
   private
-    def set_inflow
-      @inflow = Inflow.find(params[:id])
+    def generate_inflow_total(params)
+      total = 0
+      params[:inflow_items_attributes].to_h.values.each do |item|
+        unless item[:product_id].empty? || item[:quantity].empty?
+          product = Product.find(item[:product_id])
+          total += item[:quantity].to_f * product.price
+        end
+      end
+      total
     end
  
     def inflow_params
@@ -149,14 +152,7 @@ class InflowsController < ApplicationController
       end
     end
 
-    def generate_inflow_total(params)
-      total = 0
-      params[:inflow_items_attributes].to_h.values.each do |item|
-        unless item[:product_id].empty? || item[:quantity].empty?
-          product = Product.find(item[:product_id])
-          total += item[:quantity].to_f * product.price
-        end
-      end
-      total
+    def set_inflow
+      @inflow = Inflow.find(params[:id])
     end
 end

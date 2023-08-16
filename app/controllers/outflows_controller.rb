@@ -105,8 +105,15 @@ class OutflowsController < ApplicationController
   end
 
   private
-    def set_outflow
-      @outflow = Outflow.find(params[:id])
+    def generate_outflow_total(params)
+      total = 0
+      params[:outflow_items_attributes].to_h.values.each do |item|
+        unless item.values.any? {|value| value.empty?}
+          supply = Supply.find(item[:supply_id])
+          total += item[:quantity].to_f * supply.price
+        end
+      end
+      total
     end
 
     def outflow_params
@@ -129,14 +136,7 @@ class OutflowsController < ApplicationController
       end
     end
 
-    def generate_outflow_total(params)
-      total = 0
-      params[:outflow_items_attributes].to_h.values.each do |item|
-        unless item.values.any? {|value| value.empty?}
-          supply = Supply.find(item[:supply_id])
-          total += item[:quantity].to_f * supply.price
-        end
-      end
-      total
+    def set_outflow
+      @outflow = Outflow.find(params[:id])
     end
 end
