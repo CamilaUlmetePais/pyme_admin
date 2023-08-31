@@ -20,7 +20,7 @@ class Inflow < ApplicationRecord
 
 	def notification_builder
 		items.each do |item|
-			AutoNotification.stock_alert(item.product) if item.product.notification?
+			Notification.stock_alert(item.product) if item.product.notification?
 		end
 	end
 

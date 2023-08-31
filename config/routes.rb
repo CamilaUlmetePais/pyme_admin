@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root to: 'inflows#index'
-  resources :notifications, :outflows, :suppliers, :supply_product_links
+  resources :notifications, :outflows, :reminders, :suppliers, :supply_product_links
   resources :inflows do
     collection do
       get '/expand/:id', to: 'inflows#expand', as: :expand

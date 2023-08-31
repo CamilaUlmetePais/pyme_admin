@@ -17,10 +17,8 @@ es:
         product_id: Producto
         quantity: Cantidad
       notifications:
-        done: Listo
-        text: Contenido
         title: Título
-        due_date: Fecha límite
+        text: Contenido
       outflows:
         payment_method: Forma de pago
         items: Ítems
@@ -40,6 +38,11 @@ es:
         price: Precio
         stock: Stock
         unit: Unidad
+      reminders:
+        done: Listo
+        text: Contenido
+        title: Título
+        due_date: Fecha límite
       supplies:
         name: Nombre
         price: Precio
@@ -59,6 +62,7 @@ es:
         destroyed: " %{model_name} se eliminó con éxito."
         stock_updated: El stock se actualizó exitosamente.
         updated: " %{model_name} se actualizó exitosamente."
+        failed: " %{model_name} falló al intentar crearse."
         expanded: "Se agregaron ítems al %{model_name} con éxito."
     errors:
       messages:
@@ -66,6 +70,7 @@ es:
         restrict_dependent_destroy:
           has_many: No se puede borrar porque existe %{record} que dependen de él
           has_one: No se puede borrar porque existe %{record} que depende de él
+        due_date: La fecha límite no puede estar en el pasado
     models:
       inflow:
         one: Entrada
@@ -85,6 +90,9 @@ es:
       product:
         one: Producto
         other: Productos
+      reminder:
+        one: Recordatorio
+        other: Recordatorios
       supplier:
         one: Proveedor/a
         other: Proveedores/as

@@ -1,5 +1,5 @@
-<%= simple_form_for(@notification, as: :notification, html: { class: 'form-vertical' },
-    method: :post, url: notifications_path ) do |f| %>
+<%= simple_form_for(@reminder, as: :reminder, html: { class: 'form-vertical' },
+    method: :post, url: reminders_path ) do |f| %>
 	<div>
 		<%= f.error_notification %>
 		<%= f.input :title  %>
@@ -11,7 +11,7 @@
 	<div>
 		<div>
 			<button type="button">
-        <%= link_to I18n.t('helpers.buttons.back'), notifications_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
+        <%= link_to I18n.t('helpers.buttons.back'), reminders_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
       </button>
 		</div>
 		<div>

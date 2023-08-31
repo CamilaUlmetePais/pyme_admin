@@ -20,7 +20,6 @@ en:
         product_id: Product
         quantity: Quantity
       notification:
-        done: Done
         text: Text
         title: Title
       outflow:
@@ -39,6 +38,10 @@ en:
         price: Price
         stock: Stock
         unit: Unit
+      reminder:
+        done: Done
+        text: Text
+        title: Title
       supplier:
         account_balance: Account balance
         name: Name
@@ -56,9 +59,9 @@ en:
       auto_stock: Automatic stock configuration
       new_inflow: New Inflow
       new_item: New Item
-      new_notification: New Notification
       new_outflow: New Outflow
       new_product: New Product
+      new_reminder: New Reminder
       new_supplier: New Supplier
       new_supply: New Supply
       new_supply_product_link: New Supply-Product links
