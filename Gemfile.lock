@@ -249,7 +249,7 @@ DEPENDENCIES
   capybara
   debug
   devise (= 4.9.1)
-  foreman (~> 0.87.2)
+  foreman (= 0.87.2)
   importmap-rails
   jbuilder
   kaminari

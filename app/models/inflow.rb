@@ -1,6 +1,6 @@
 class Inflow < ApplicationRecord
 	before_update 								:generate_total
-	has_many 											:inflow_items
+	has_many 											:inflow_items, dependent: :destroy
 	accepts_nested_attributes_for :inflow_items, allow_destroy: true, reject_if: :all_blank
 	alias_attribute 							:items, :inflow_items
 	validates_presence_of					:payment_method
