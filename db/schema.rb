@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_204745) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_31_184439) do
   create_table "inflow_items", force: :cascade do |t|
     t.float "quantity"
     t.integer "inflow_id", null: false
@@ -31,9 +31,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_204745) do
   create_table "notifications", force: :cascade do |t|
     t.string "title"
     t.text "text"
-    t.boolean "done"
-    t.integer "notification_type"
-    t.datetime "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,6 +62,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_204745) do
     t.integer "unit"
     t.float "stock"
     t.integer "notification_threshold"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reminders", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.boolean "done"
+    t.datetime "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

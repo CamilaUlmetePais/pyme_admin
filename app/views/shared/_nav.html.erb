@@ -1,5 +1,5 @@
-<nav class="bg-indigo-900 w-screen text-white">
-  <div class="inline-flex align-middle mr-2">
+<nav class="bg-indigo-900 w-screen text-white shadow-sm">
+  <div class="inline-flex align-middle mr-2 my-1">
     <%= image_tag("logo.png", size:"50x50") %>
   </div>
 
@@ -7,21 +7,21 @@
     <ul class="inline-flex align-middle space-x-4">
       <% if user_signed_in? %>
         <li><%= link_to I18n.t('activerecord.models.inflow.other'), inflows_path %></li>
-        <li><%= link_to I18n.t('activerecord.models.notification.other'), notifications_path %>
-        <li><%= link_to I18n.t('activerecord.models.supply.other'), supplies_path %></li>
-        <li><%= link_to	I18n.t('activerecord.models.product.other'), products_path %></li>
-        <% if current_user.role >= 1 #cashier %>
-          <li><%= link_to I18n.t('views.headers.pages.take'), take_path %></li>
-        <% end %>
         <% if current_user.role >= 2 #manager %>
           <li><%= link_to	I18n.t('activerecord.models.outflow.other'), outflows_path %></li>
         <% end %>
+        <li><%= link_to I18n.t('activerecord.models.reminder.other'), reminders_path %>
+        <li><%= link_to I18n.t('activerecord.models.supply.other'), supplies_path %></li>
+        <li><%= link_to	I18n.t('activerecord.models.product.other'), products_path %></li>
         <% if current_user.role >= 3 #supervisor %>
           <li><%= link_to I18n.t('activerecord.models.supply_product_link.other'), supply_product_links_path %></li>
         <% end %>
         <% if current_user.role >= 4 #owner %>
           <li><%= link_to I18n.t('activerecord.models.supplier.other'), suppliers_path %></li>
           <li><%= link_to I18n.t('views.headers.pages.statistics'), statistics_path %></li>
+        <% end %>
+        <% if current_user.role >= 1 #cashier %>
+          <li><%= link_to I18n.t('views.headers.pages.take'), take_path %></li>
         <% end %>
       <% end %>
       <div class="inline-flex">

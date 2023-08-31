@@ -17,10 +17,8 @@ en:
         product_id: Product
         quantity: Quantity
       notifications:
-        done: Done
-        text: Text
         title: Title
-        due_date: Due Date
+        text: Content
       outflows:
         payment_method: Payment method
         items: Items
@@ -40,6 +38,11 @@ en:
         price: Price
         stock: Stock
         unit: Unit
+      reminders:
+        done: Done
+        text: Text
+        title: Title
+        due_date: Due Date
       supplies:
         name: Name
         price: Price
@@ -67,6 +70,7 @@ en:
         restrict_dependent_destroy:
           has_many: Cannot delete record because dependent %{record} exist
           has_one: Cannot delete record because a dependent %{record} exists
+        due_date: Due date cannot be in the past
     models:
       inflow:
         one: Inflow
@@ -86,6 +90,9 @@ en:
       product:
         one: Product
         other: Products
+      reminder:
+        one: Reminder
+        other: Reminders
       supplier:
         one: Supplier
         other: Suppliers

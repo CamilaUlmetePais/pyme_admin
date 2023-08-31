@@ -1,5 +1,5 @@
 es:
-  auto_notification:
+  notification:
     stock_alert:
       title: 'Stock bajo: %{product}'
       text: 'El stock de %{product} bajó a %{stock}. Considerá re-stockear pronto.'

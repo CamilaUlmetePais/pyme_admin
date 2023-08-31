@@ -53,6 +53,4 @@ es:
           take: Caja
         products:
           mass_stock: Actualizar stock
-        notifications:
-          manual_notifications: Pedidos de clientes
-          auto_notifications: Alertas de Sistema
+        notifications: Alertas del sistema

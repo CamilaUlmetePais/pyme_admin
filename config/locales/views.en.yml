@@ -53,6 +53,4 @@ en:
           take: Take
         products:
           mass_stock: Stock update
-        notifications:
-          manual_notifications: Customer Orders
-          auto_notifications: System Alerts
+        notifications: System alerts

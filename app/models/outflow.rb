@@ -26,7 +26,7 @@ class Outflow < ApplicationRecord
 	end
 
 	def notification_builder
-		AutoNotification.balance_alert(supplier) if supplier.notification?
+		Notification.balance_alert(supplier) if supplier.notification?
 	end
 
 	def restore_stock
