@@ -5,13 +5,11 @@ class InflowsController < ApplicationController
   def add_items
     # check that the items aren't empty and .push them onto the original inflow_items_attributes
     items_to_add = inflow_params[:inflow_items_attributes]#.map {|item| !item[].empty? }
-    byebug
     items_to_add.keys.each do |key|
       ready_item = items_to_add[key].push(inflow_id: @inflow.id)
       @new_item = InflowItem.new(ready_item)
       @new_item.save
     end
-    byebug
     respond_to do |format|
       format.html { redirect_to inflows_path,
                     notice: {
@@ -28,8 +26,6 @@ class InflowsController < ApplicationController
     @inflow.total = generate_inflow_total(inflow_params)
     respond_to do |format|
       if @inflow.save
-        @inflow.substract_stock
-        @inflow.notification_builder
         format.html { redirect_to inflows_path,
                       notice: {
                         message: I18n.t('activerecord.controllers.actions.created',
@@ -98,8 +94,6 @@ class InflowsController < ApplicationController
       @inflow.transaction do
         @inflow.restore_stock
         successful = @inflow.update(inflow_params)
-        @inflow.substract_stock
-        @inflow.notification_builder
       end
       if successful
         format.html { redirect_to inflows_path,
