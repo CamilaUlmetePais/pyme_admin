@@ -74,16 +74,6 @@
 							<td><%= notification.text %></td>
 							<td>
 								<button type='button'>
-									<%= link_to I18n.t('helpers.buttons.show'), notification_path(notification) %>
-								</button>
-							</td>
-							<td>
-								<button type='button'>
-									<%= link_to I18n.t('helpers.buttons.edit'), edit_notification_path(notification) %>
-								</button>
-							</td>
-							<td>
-								<button type='button'>
 									<%= button_to I18n.t('helpers.buttons.destroy'), notification_path(notification), method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }%>
 								</button>
 							</td>
