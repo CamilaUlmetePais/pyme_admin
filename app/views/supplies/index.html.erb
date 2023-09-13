@@ -14,6 +14,7 @@
 					<tr>
 						<th><%= I18n.t('activerecord.attributes.supplies.name') %></th>
 						<th><%= I18n.t('activerecord.attributes.supplies.price') %></th>
+						<th><%= I18n.t('activerecord.attributes.supplies.stock') %></th>
 					</tr>
 				</thead>
 
@@ -22,6 +23,7 @@
 						<tr>
 							<td><%= supply.name %></td>
 							<td>$<%= supply.price %></td>
+							<td><%= supply.stock %> <%= supply.unit.upcase %></td>
 							<td>
                 <button type="button">
                   <%= link_to I18n.t('helpers.buttons.show'), supply_path(supply) %>
