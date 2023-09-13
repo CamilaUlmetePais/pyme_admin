@@ -20,7 +20,7 @@ RSpec.describe Inflow, type: :model do
 	end
 
 	describe ".notification_builder" do
-		it "creates a notification if the associated product's stock falls below the notification threshold" do
+		it "calls for the creation of a notification if the associated product's stock falls below the notification threshold" do
 			@product = create(:product, stock: 10, notification_threshold: 5)
 			@last_notification = Notification.last
 
