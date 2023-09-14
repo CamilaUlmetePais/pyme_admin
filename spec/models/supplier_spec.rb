@@ -23,7 +23,8 @@ RSpec.describe Supplier, type: :model do
 			@outflow_item2 = create(:outflow_item, quantity: 7)
 			@outflow_item3 = create(:outflow_item, quantity: 3)
 
-			@supplier.get_expenses(@supply.id, @supply.name) == {supply_name:"Supply", supplier_name: "Supplier", expenses: 15}
+			expect(@supplier.get_expenses(@supply.id, @supply.name)).to eq(
+				{supply_name:"Supply", supplier_name: "Supplier", expenses: 15})
 		end
 	end
 
@@ -39,14 +40,28 @@ RSpec.describe Supplier, type: :model do
 		end
 	end
 
+	describe ".restore_balance" do
+		it "restores balance to previous value when an outflow is deleted" do
+			@supplier     = create(:supplier, account_balance: 0)
+			@supply				= create(:supply, price: 25)
+			@outflow			= create(:outflow, paid: 0, total: 50)
+			@supplier.update_balance(@outflow)
+			
+			expect(@supplier.account_balance).to eq(-50)
+
+			@supplier.restore_balance(@outflow)
+			expect(@supplier.account_balance).to eq(0)
+		end
+	end
+
 	describe ".update_balance" do
 		it "calculates the new value for the account_balance attribute" do
-			@supplier = create(:supplier, account_balance: 100)
-			@outflow  = create(:outflow, paid: 150, total: 100)
+			@supplier = create(:supplier, account_balance: -25)
+			@outflow  = create(:outflow, paid: 125, total: 100)
 
 			@supplier.update_balance(@outflow)
 
-			@supplier.account_balance == 50
+			expect(@supplier.account_balance).to eq(0)
 		end
 	end
 end

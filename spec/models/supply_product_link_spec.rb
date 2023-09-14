@@ -31,6 +31,6 @@ RSpec.describe SupplyProductLink, type: :model do
 			@supply_product_link	= create(:supply_product_link, product_id: 1, supply_id: 1)
 			@supply_product_link2 = SupplyProductLink.new(product_id: 2, supply_id: 1)
 			expect(@supply_product_link2).not_to be_valid
-		end
+		end 
 	end
 end

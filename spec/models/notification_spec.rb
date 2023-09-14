@@ -36,6 +36,6 @@ RSpec.describe Reminder, type: :model do
 				balance: @supplier.account_balance,
 				difference: @difference
 				)
-		end
+		end 
 	end
 end

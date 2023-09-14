@@ -14,10 +14,11 @@ RSpec.describe InflowItem, type: :model do
 
 	describe ".list" do
 		it "creates a concatenated string with its attributes for improved legibility" do
-			@product          = create(:product, unit: 0)
+			@product          = create(:product, unit: 0, name: "Alitas")
 			@inflow           = create(:inflow)
 			@inflow_item      = create(:inflow_item, quantity: 2)
-			@inflow_item.list == "Test: 2kg"
+
+			expect(@inflow_item.list).to eq("Alitas: 2.0 kg")
 		end
 	end
 
@@ -26,7 +27,8 @@ RSpec.describe InflowItem, type: :model do
 			@product          				= create(:product, name: "Alitas", unit: 0, price: 100)
 			@inflow           				= create(:inflow)
 			@inflow_item     	 				= create(:inflow_item, quantity: 2)
-			@inflow_item.receipt_list == "Alitas: 2kg x $100 = $ 200"
+
+			expect(@inflow_item.receipt_list).to eq("Alitas: 2.0kg x $100.0 = $200.0")
 		end
 	end
 
@@ -35,7 +37,8 @@ RSpec.describe InflowItem, type: :model do
 			@product              = create(:product, price: 5)
 			@inflow               = create(:inflow)
 			@inflow_item          = create(:inflow_item, quantity: 5)
-			@inflow_item.subtotal == 25
+			
+			expect(@inflow_item.subtotal).to eq(25)
 		end
 	end
 end

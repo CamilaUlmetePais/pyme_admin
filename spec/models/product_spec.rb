@@ -44,7 +44,8 @@ RSpec.describe Product, type: :model do
 		it "updates the product's stock attribute" do
 			@product = create(:product, stock: 100)
 			@product.update_stock(50)
-			@product.stock == 150
+
+			expect(@product.stock).to eq(150)
 		end
 	end
 
@@ -54,7 +55,7 @@ RSpec.describe Product, type: :model do
 			@inflow      = create(:inflow)
 			@inflow_item = create(:inflow_item, quantity: 2)
 
-			@product.sales_total == 10
+			expect(@product.sales_total).to eq(10)
 		end
 	end
 end

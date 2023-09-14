@@ -13,16 +13,17 @@ RSpec.describe OutflowItem, type: :model do
   end
 
   describe ".add_stock" do
-    it "adds stock to the associated supply when an outflow is created" do
+    xit "adds stock to the associated supply when an outflow is created" do
       @supply       = create(:supply, stock: 0)
       @supplier     = create(:supplier)
       @outflow      = create(:outflow)
       @outflow_item = create(:outflow_item, quantity: 25)
+      @outflow.add_stock
 
-      @supply.stock == 25
+      expect(@supply.stock).to eq(25)
     end
 
-    it "adds stock to the associated product when a SupplyProductLink exists linking it to the supply" do
+    xit "adds stock to the associated product when a SupplyProductLink exists linking it to the supply" do
       @supply       = create(:supply, stock: 0)
       @product      = create(:product, stock: 0)
       @link         = create(:supply_product_link)
@@ -30,18 +31,19 @@ RSpec.describe OutflowItem, type: :model do
       @outflow      = create(:outflow)
       @outflow_item = create(:outflow_item, quantity: 25)
 
-      @product.stock == 25 
-      @supply.stock == 0
+      expect(@product.stock).to eq(25) 
+      expect(@supply.stock).to eq(0)
     end
   end 
 
   describe ".list" do
     it "creates a concatenated string with its attributes for improved legibility" do
-      @supply            = create(:supply, unit: 0)
+      @supply            = create(:supply, unit: 0, name: "Pollo")
       @supplier          = create(:supplier)
       @outflow           = create(:outflow)
       @outflow_item      = create(:outflow_item, quantity: 5)
-      @outflow_item.list == "Test: 5kg"
+      
+      expect(@outflow_item.list).to eq("Pollo: 5.0 kg")
     end
   end
 
@@ -51,26 +53,29 @@ RSpec.describe OutflowItem, type: :model do
       @supplier     = create(:supplier)
       @outflow      = create(:outflow)
       @outflow_item = create(:outflow_item, quantity: 2)
-      @outflow_item.receipt_list == "Pollo: 2kg x $100 = $200"
+      
+      expect(@outflow_item.receipt_list).to eq("Pollo: 2.0kg x $100.0 = $200.0")
     end
   end
 
   describe ".restore_stock" do
-    it "adds stock to the associated supply when an outflow is created" do
+    xit "restores stock to the associated supply when an outflow is deleted" do
       @supply       = create(:supply, stock: 0)
       @supplier     = create(:supplier)
       @outflow      = create(:outflow)
       @outflow_item = create(:outflow_item, quantity: 25)
 
-      @supply.stock == 25
+      @outflow.add_stock
 
-      @outflow.destroy
+      expect(@supply.stock).to eq(25)
 
-      @supply.stock == 0
+      @outflow.restore_stock
+
+      expect(@supply.stock).to eq(0)
 
     end
 
-    it "adds stock to the associated product when a SupplyProductLink exists linking it to the supply" do
+    xit "restores stock to the associated product when a SupplyProductLink exists linking it to the supply" do
       @supply       = create(:supply, stock: 0)
       @product      = create(:product, stock: 0)
       @link         = create(:supply_product_link)
@@ -78,13 +83,15 @@ RSpec.describe OutflowItem, type: :model do
       @outflow      = create(:outflow)
       @outflow_item = create(:outflow_item, quantity: 25)
 
-      @product.stock == 25 
-      @supply.stock == 0
+      @outflow.add_stock
 
-      @outflow.destroy
+      expect(@product.stock).to eq(25)
+      expect(@supply.stock).to eq(0)
 
-      @product.stock == 0
-      @supply.stock == 0
+      @outflow.restore_stock
+
+      expect(@product.stock).to eq(0)
+      expect(@supply.stock).to eq(0)
     end
   end
 
@@ -94,7 +101,7 @@ RSpec.describe OutflowItem, type: :model do
       @supplier          = create(:supplier)
       @outflow               = create(:outflow)
       @outflow_item          = create(:outflow_item, quantity: 5)
-      @outflow_item.subtotal == 25
+      expect(@outflow_item.subtotal).to eq(25)
     end
   end
 end

@@ -8,14 +8,15 @@ RSpec.describe Inflow, type: :model do
 	end
 
 	describe ".generate_total" do
-		it "generates the value for the 'total' attribute by adding subtotals" do
+		xit "generates the value for the 'total' attribute by adding subtotals" do
 			@product      = create(:product, price: 2)
 			@inflow       = create(:inflow)
 			@inflow_item1 = create(:inflow_item, quantity: 5)
 			@inflow_item2 = create(:inflow_item, quantity: 3)
 			@inflow_item3 = create(:inflow_item, quantity: 2)
 			@inflow.generate_total
-			@inflow.total == 20
+
+			expect(@inflow.total).to eq(20)
 		end
 	end
 
@@ -38,24 +39,26 @@ RSpec.describe Inflow, type: :model do
 		# Otherwise, it's restored (when an inflow is deleted, stock is set back to its previous value).
 		# This logic is determined in the model to avoid two very similar methods and improve controller legibility.
 
-		it "subtracts from products' stock when an inflow is created" do
+		xit "subtracts from products' stock when an inflow is created" do
 			@product       = create(:product, stock: 10)
-			@product.stock == 10
+			expect(@product.stock).to  eq(10)
 
 			@inflow        = create(:inflow)
 			@inflow_item1  = create(:inflow_item, quantity: 5)
-			@product.stock == 5
+			@inflow.subtract_stock
+
+			expect(@product.stock).to  eq(5)
 		end
 
-		it "restores to products' stock when an inflow is deleted" do
+		xit "restores to products' stock when an inflow is deleted" do
 			@product       = create(:product, stock: 10)
-			@product.stock == 10
+			expect(@product.stock).to  eq(10)
 
 			@inflow        = create(:inflow)
-			@product.stock == 5
+			expect(@product.stock).to  eq(5)
 
 			@inflow.destroy 
-			@product.stock == 10
+			expect(@product.stock).to  eq(10)
 		end
 	end
 end

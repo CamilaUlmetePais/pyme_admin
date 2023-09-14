@@ -13,18 +13,15 @@ class Supplier < ApplicationRecord
 		{supply_name: supply_name, supplier_name: self.name, expenses: expenses.sum('quantity')}
 	end
 
-	# Returns true if a supplier's account balance drops below the set notification threshold, and therefore a notification must be created to alert the user. 
   def notification?
     self.account_balance <= self.notification_threshold
   end
 
-  # Restores account_balance to its previous value when an outflow is deleted or updated.
   def restore_balance(outflow)
     new_balance = self.account_balance - (outflow.paid - outflow.total)
     self.update(account_balance: new_balance)
   end
 
-	# Takes an outflow's parameters and updates the corresponding supplier's account balance.
 	def update_balance(outflow)
 		new_balance = self.account_balance + (outflow.paid - outflow.total)
     self.update(account_balance: new_balance)

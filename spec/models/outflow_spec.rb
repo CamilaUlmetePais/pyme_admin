@@ -25,7 +25,7 @@ RSpec.describe Outflow, type: :model do
 			@outflow_item3 	= create(:outflow_item, quantity: 2)
 
 			@outflow.generate_total
-			@outflow.total == 50
+			expect(@outflow.total).to eq(50)
 		end
 	end
 

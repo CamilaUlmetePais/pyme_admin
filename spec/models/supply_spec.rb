@@ -24,9 +24,31 @@ RSpec.describe Supply, type: :model do
 			@outflow_item2 = create(:outflow_item, quantity: 10)
 			@outflow_item3 = create(:outflow_item, quantity: 6)
 
-			@supply.units_bought == 21
-			@supply.cogs         == 42
+			expect(@supply.units_bought).to eq(21)
+			expect(@supply.cogs).to         eq(42)
 		end
+	end
+
+	describe ".get_operative_expenses" do
+		xit "maps all units bought from all suppliers" do
+			@supply        = create(:supply, price: 2, name: "Queso")
+
+			@supplier			 = create(:supplier, name: "Camila")
+			@outflow       = create(:outflow)
+			@outflow_item1 = create(:outflow_item, quantity: 5)
+			
+			@supplier2		 = create(:supplier, name: "Santiago")
+			@outflow2      = create(:outflow, supplier_id: 2)
+			@outflow_item2 = create(:outflow_item, quantity: 10)
+
+			@operative_expenses = @supply.get_operative_expenses
+			
+			#should list all suppliers with amount of units bought from each, instead shows the first supplier and all units as if bought from that supplier alone. fix
+		end
+	end
+
+	describe ".mass_stock_update" do
+		#
 	end
 
 	describe ".update_stock" do
@@ -37,7 +59,8 @@ RSpec.describe Supply, type: :model do
 			@outflow_item1 = create(:outflow_item, quantity: 10)
 
 			@supply.update_stock(@outflow_item1.quantity)
-			@supply.stock == 20
+			
+			expect(@supply.stock).to eq(20)
 		end
 	end
 end
