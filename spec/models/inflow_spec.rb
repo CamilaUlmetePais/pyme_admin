@@ -7,19 +7,6 @@ RSpec.describe Inflow, type: :model do
 		it { should validate_presence_of(:payment_method)}
 	end
 
-	describe ".generate_total" do
-		xit "generates the value for the 'total' attribute by adding subtotals" do
-			@product      = create(:product, price: 2)
-			@inflow       = create(:inflow)
-			@inflow_item1 = create(:inflow_item, quantity: 5)
-			@inflow_item2 = create(:inflow_item, quantity: 3)
-			@inflow_item3 = create(:inflow_item, quantity: 2)
-			@inflow.generate_total
-
-			expect(@inflow.total).to eq(20)
-		end
-	end
-
 	describe ".notification_builder" do
 		it "calls for the creation of a notification if the associated product's stock falls below the notification threshold" do
 			@product = create(:product, stock: 10, notification_threshold: 5)
@@ -41,24 +28,30 @@ RSpec.describe Inflow, type: :model do
 
 		xit "subtracts from products' stock when an inflow is created" do
 			@product       = create(:product, stock: 10)
-			expect(@product.stock).to  eq(10)
+			expect(@product.stock).to eq(10)
 
 			@inflow        = create(:inflow)
 			@inflow_item1  = create(:inflow_item, quantity: 5)
-			@inflow.subtract_stock
+			
+			@inflow.update_stocks(true)
 
-			expect(@product.stock).to  eq(5)
-		end
+			expect(@product.stock).to eq(5)
+		end 
 
 		xit "restores to products' stock when an inflow is deleted" do
 			@product       = create(:product, stock: 10)
-			expect(@product.stock).to  eq(10)
+
+			expect(@product.stock).to eq(10)
 
 			@inflow        = create(:inflow)
-			expect(@product.stock).to  eq(5)
+			@inflow_item1  = create(:inflow_item, quantity: 5)
+			@inflow.update_stocks(true)
+	
+			expect(@product.stock).to eq(5)
 
-			@inflow.destroy 
-			expect(@product.stock).to  eq(10)
+			@inflow.update_stocks(false)
+
+			expect(@product.stock).to eq(10)
 		end
 	end
 end
