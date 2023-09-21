@@ -1,9 +1,11 @@
 class Inflow < ApplicationRecord
-	before_update 								:generate_total
 	has_many 											:inflow_items, dependent: :destroy
 	accepts_nested_attributes_for :inflow_items, allow_destroy: true, reject_if: :all_blank
 	alias_attribute 							:items, :inflow_items
 	validates_presence_of					:payment_method
+
+	before_update 								:generate_total
+  after_save										:notification_builder, :subtract_stock
 
 	#scope :cash_scope, -> (value) { where('cash = ?', value) }
 	scope :date_range, -> (start_date, end_date) { where(
@@ -28,13 +30,13 @@ class Inflow < ApplicationRecord
 		self.update_stocks(false)
 	end
 
-	def substract_stock
+	def subtract_stock
 		self.update_stocks(true)
 	end
 
-	def update_stocks(substract)
+	def update_stocks(subtract)
 		self.items.each do |item|
-			if substract && !item.quantity.nil?
+			if subtract && !item.quantity.nil?
 				value = -item.quantity
 			else
 				value = item.quantity

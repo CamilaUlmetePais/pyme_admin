@@ -7,6 +7,9 @@ class Outflow < ApplicationRecord
 	validates 										:total, :paid, :supplier_id, presence: true
 	validates 										:total, :paid, numericality: true
 
+	before_update 								:generate_total
+  #after_save										:notification_builder, :add_stock
+
 	scope :date_range, -> (start_date, end_date) { where(
 		'created_at >= ? AND created_at <= ?', start_date, end_date) }
 
