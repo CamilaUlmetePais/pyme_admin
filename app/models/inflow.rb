@@ -4,7 +4,6 @@ class Inflow < ApplicationRecord
 	alias_attribute 							:items, :inflow_items
 	validates_presence_of					:payment_method
 
-	before_update 								:generate_total
   after_save										:notification_builder, :subtract_stock
 
 	#scope :cash_scope, -> (value) { where('cash = ?', value) }
@@ -12,13 +11,6 @@ class Inflow < ApplicationRecord
 		'created_at >= ? AND created_at <= ?', start_date, end_date) }
 
 	enum payment_method: [:cash, :debit, :credit, :pay_pal] 
-
-	def generate_total
-		self.total = 0
-		self.items.each do |item|
-			self.total += item.subtotal
-		end
-	end
 
 	def notification_builder
 		items.each do |item|
