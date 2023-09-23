@@ -4,57 +4,60 @@
       <%= render 'shared/errors', klass: outflow %>
     </div>
 
-    <div>
-      <div>
-        <%= f.input :total %>
+    <div class="grid grid-cols-12 my-2 gap-y-2">
+      <div class="col-span-12 md:col-span-6 xl:col-span-3">
+        <%= f.input :total, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400' } %>
       </div>
-      <div>
-        <%= f.input :paid %>
+      <div class="col-span-12 md:col-span-6 xl:col-span-3">
+        <%= f.input :paid, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400' } %>
       </div>
     </div>
-    <div>
-      <div>
-        <%= f.input :supplier_id, collection: @suppliers %>
+
+    <div class="grid grid-cols-12 my-2 gap-y-2">
+      <div class="col-span-12 md:col-span-6 xl:col-span-3">
+        <%= f.input :supplier_id, collection: @suppliers, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400' } %>
       </div>
-      <div>
+      <div class="col-span-12 md:col-span-6 xl:col-span-3">
         <%= f.input :payment_method, collection: [
             [ I18n.t('views.body.payment_method.cash'), :cash], 
             [ I18n.t('views.body.payment_method.debit'), :debit], 
             [ I18n.t('views.body.payment_method.credit'), :credit], 
             [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], 
-          selected: 0 %>
+          selected: 0, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400' } %>
       </div>
     </div>
-    <div>
-      <div>
-        <%= f.input :notes %>
+
+    <div class="w-full grid grid-cols-12 my-2">
+      <div class="col-span-12">
+        <%= f.input :notes, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400' } %>
       </div>
     </div>
 
     <div>
       <div>
-        <h4><%= I18n.t('activerecord.models.outflow_item.other') %></h4>
+        <h4 class="text-xl mb-1"><%= I18n.t('activerecord.models.outflow_item.other') %></h4>
       </div>
     </div>
 
     <div>
-      <div class="outflow_items">
-        <%= f.simple_fields_for :outflow_items do |builder| %>
-          <%= render "outflow_item_fields", f: builder %>
-          <div class="links">
-            <!--button type="button">
-              <%# link_to_add_association I18n.t('helpers.links.new_item'), f, :outflow_items %>
-            </button-->
-          </div>
+      <%= f.simple_fields_for :outflow_items do |builder| %>
+        <% if action_name == 'edit' %>
+          <%= render "edit_outflow_item_fields", builder: builder, outflow: @outflow %>
+        <% else %>
+          <%= render "outflow_item_fields", builder: builder, outflow: @outflow %>
         <% end %>
-      </div>
+      <% end %>
     </div>
 
-    <div>
-      <button type="button">
-        <%= link_to I18n.t('helpers.buttons.back'), outflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
-      </button>
-      <%= f.button :submit %>
+    <div class="grid grid-cols-12">
+      <div class="col-span-5">
+        <button type="button" class="p-3 bg-white hover:bg-gray-100 border border-gray-400 rounded-md shadow-sm font-medium">
+          <%= link_to I18n.t('helpers.buttons.back'), outflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
+        </button>
+      </div>
+      <div class="col-span-2 place-content-end">
+        <%= f.button :submit, class: "p-3 bg-blue-700 hover:bg-blue-800 rounded-md shadow-sm font-medium text-white" %>
+      </div>
     </div>
   </div>
 <% end %>

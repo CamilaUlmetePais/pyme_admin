@@ -1,10 +1,165 @@
-<div class="fields">
-  <fieldset>
-      <div class="field">
-        <%= f.input :quantity %>
+<div>
+  <div class="fields text-sm">
+    <fieldset>
+      <div id="item-0" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="quantity-0 col-span-12 md:col-span-4 xl:col-span-3">
+          <%= builder.input :quantity, input_html: {
+            id: 'outflow_outflow_items_attributes_0_quantity',
+            name: 'outflow[outflow_items_attributes][0][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
+            } %>
+        </div>
+        <div class="supply-id-0 col-span-12 md:col-span-4 xl:col-span-2">
+          <%= builder.input :supply_id, collection: @supplies, input_html: {
+              id: 'outflow_outflow_items_attributes_0_supply_id',
+              name: 'outflow[outflow_items_attributes][0][supply_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2'
+              } %>
+        </div>
+        <div  id="subtotal-0" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
+          subtotal 0
+        </div>
       </div>
-      <div class="field">
-        <%= f.input :supply_id, collection: @supplies %>
-      </div>    
-  </fieldset>
+
+      <div id="item-1" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="field quantity-1 col-span-12 md:col-span-4 xl:col-span-3">
+          <%= builder.input :quantity, input_html: {
+            id: 'outflow_outflow_items_attributes_1_quantity',
+            name: 'outflow[outflow_items_attributes][1][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
+            } %>
+        </div>
+        <div class="field supply-id-1 col-span-12 md:col-span-4 xl:col-span-2">
+          <%= builder.input :supply_id, collection: @supplies, input_html: {
+              id: 'outflow_outflow_items_attributes_1_supply_id',
+              name: 'outflow[outflow_items_attributes][1][supply_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2'
+              } %>
+        </div>
+        <div id="subtotal-1" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
+          subtotal 1
+        </div>
+      </div>
+
+      <div id="item-2" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="field quantity-2 col-span-12 md:col-span-4 xl:col-span-3">
+          <%= builder.input :quantity, input_html: {
+            id: 'outflow_outflow_items_attributes_2_quantity',
+            name: 'outflow[outflow_items_attributes][2][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
+            } %>
+        </div>
+        <div class="field supply-id-2 col-span-12 md:col-span-4 xl:col-span-2">
+          <%= builder.input :supply_id, collection: @supplies, input_html: {
+              id: 'outflow_outflow_items_attributes_2_supply_id',
+              name: 'outflow[outflow_items_attributes][2][supply_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2'
+              } %>
+        </div>
+        <div id="subtotal-2" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
+          subtotal 2
+        </div>
+      </div>
+
+      <div id="item-3" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="field quantity-3 col-span-12 md:col-span-4 xl:col-span-3">
+          <%= builder.input :quantity, input_html: {
+            id: 'outflow_outflow_items_attributes_3_quantity',
+            name: 'outflow[outflow_items_attributes][3][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
+            } %>
+        </div>
+        <div class="field supply-id-3 col-span-12 md:col-span-4 xl:col-span-2">
+          <%= builder.input :supply_id, collection: @supplies, input_html: {
+              id: 'outflow_outflow_items_attributes_3_supply_id',
+              name: 'outflow[outflow_items_attributes][3][supply_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2'
+              } %>
+        </div>
+        <div id="subtotal-3" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
+          subtotal 3
+        </div>
+      </div>
+
+      <div id="item-4" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="field quantity-4 col-span-12 md:col-span-4 xl:col-span-3">
+          <%= builder.input :quantity, input_html: {
+            id: 'outflow_outflow_items_attributes_4_quantity',
+            name: 'outflow[outflow_items_attributes][4][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
+            } %>
+        </div>
+        <div class="field supply-id-4 col-span-12 md:col-span-4 xl:col-span-2">
+          <%= builder.input :supply_id, collection: @supplies, input_html: {
+              id: 'outflow_outflow_items_attributes_4_supply_id',
+              name: 'outflow[outflow_items_attributes][4][supply_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2'
+              } %>
+        </div>
+        <div id="subtotal-4" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
+          subtotal 4
+        </div>
+      </div>
+
+      <div id="item-5" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="field quantity-5 col-span-12 md:col-span-4 xl:col-span-3">
+          <%= builder.input :quantity, input_html: {
+            id: 'outflow_outflow_items_attributes_5_quantity',
+            name: 'outflow[outflow_items_attributes][5][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
+            } %>
+        </div>
+        <div class="field supply-id-5 col-span-12 md:col-span-4 xl:col-span-2">
+          <%= builder.input :supply_id, collection: @supplies, input_html: {
+              id: 'outflow_outflow_items_attributes_5_supply_id',
+              name: 'outflow[outflow_items_attributes][5][supply_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2' 
+              } %>
+        </div>
+        <div id="subtotal-5" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
+          subtotal 5
+        </div>
+      </div>
+
+      <div id="item-6" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="field quantity-6 col-span-12 md:col-span-4 xl:col-span-3">
+          <%= builder.input :quantity, input_html: {
+            id: 'outflow_outflow_items_attributes_6_quantity',
+            name: 'outflow[outflow_items_attributes][6][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
+            } %>
+        </div>
+        <div class="field supply-id-6 col-span-12 md:col-span-4 xl:col-span-2">
+          <%= builder.input :supply_id, collection: @supplies, input_html: {
+              id: 'outflow_outflow_items_attributes_6_supply_id',
+              name: 'outflow[outflow_items_attributes][6][supply_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2'
+              } %>
+        </div>
+        <div id="subtotal-6" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
+          subtotal 6
+        </div>
+      </div>
+
+      <div id="item-7" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="field quantity-7 col-span-12 md:col-span-4 xl:col-span-3">
+          <%= builder.input :quantity, input_html: {
+            id: 'outflow_outflow_items_attributes_7_quantity',
+            name: 'outflow[outflow_items_attributes][7][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
+            } %>
+        </div>
+        <div class="field supply-id-7 col-span-12 md:col-span-4 xl:col-span-2">
+          <%= builder.input :supply_id, collection: @supplies, input_html: {
+              id: 'outflow_outflow_items_attributes_7_supply_id',
+              name: 'outflow[outflow_items_attributes][7][supply_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2'
+              } %>
+        </div>
+        <div id="subtotal-7" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
+          subtotal 7
+        </div>
+      </div>
+    </fieldset>
+  </div>
 </div>
