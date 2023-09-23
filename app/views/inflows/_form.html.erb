@@ -5,7 +5,7 @@
     </div>
     
     <div>
-      <h4><%= I18n.t('activerecord.models.inflow_item.other') %></h4>
+      <h4 class="text-xl mb-1"><%= I18n.t('activerecord.models.inflow_item.other') %></h4>
     </div>
 
     <div>
@@ -18,25 +18,30 @@
       <% end %>
     </div>
 
-    <div>
-      <%= f.input :payment_method, collection: [
-        [ I18n.t('views.body.payment_method.cash'), :cash], 
-        [ I18n.t('views.body.payment_method.debit'), :debit], 
-        [ I18n.t('views.body.payment_method.credit'), :credit], 
-        [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], 
-      selected: 0 %>
-    </div>
-    
-    <div id="total">
-      <%= I18n.t('activerecord.attributes.inflows.total') %>
+    <div class="grid grid-cols-12 mb-2">
+      <div class="col-span-12 md:col-span-6 xl:col-span-4">
+        <%= f.input :payment_method, collection: [
+          [ I18n.t('views.body.payment_method.cash'), :cash], 
+          [ I18n.t('views.body.payment_method.debit'), :debit], 
+          [ I18n.t('views.body.payment_method.credit'), :credit], 
+          [ I18n.t('views.body.payment_method.pay_pal'), :pay_pal]], 
+        selected: 0, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400' }%>
+      </div>
+      
+      <div class="col-span-12 md:col-span-6 xl:col-span-1">
+        <%= I18n.t('activerecord.attributes.inflows.total') %>: 
+        <span id="total"> </span>
+      </div>
     </div>
 
-    <div>
-      <button type="button">
-        <%= link_to I18n.t('helpers.buttons.back'), inflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
-      </button>
-      <div>
-        <%= f.button :submit %>
+    <div class="grid grid-cols-12">
+      <div class="col-span-5">
+        <button type="button" class="p-3 bg-white hover:bg-gray-100 border border-gray-400 rounded-md shadow-sm font-medium">
+          <%= link_to I18n.t('helpers.buttons.back'), inflows_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
+        </button>
+      </div>
+      <div class="col-span-2 place-content-end">
+        <%= f.button :submit, class: "p-3 bg-blue-700 hover:bg-blue-800 rounded-md shadow-sm font-medium text-white" %>
       </div>
     </div>
   </div>

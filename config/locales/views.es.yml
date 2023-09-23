@@ -36,6 +36,9 @@ es:
         show:
           history: Historial de transacciones
           date: Creado el
+          receipt_date: Fecha de compra
+          receipt_items: Detalle de compra
+          payment_receipt: Comprobante de pago
         payment_method:
           cash: Efectivo
           debit: Débito

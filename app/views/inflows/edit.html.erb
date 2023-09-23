@@ -1,6 +1,8 @@
-<div>
+<div class="ml-3 mt-1">
 	<div>
-		<h1><%=I18n.t('helpers.buttons.edit', model: I18n.t('activerecord.models.inflow.one') )%> </h1>
+		<h1 class="text-4xl font-medium mb-2">
+			<%=I18n.t('helpers.buttons.edit', model: I18n.t('activerecord.models.inflow.one'))%>
+		</h1>
 	</div>
 	<div>
 		<%= render 'form', inflow: @inflow %>

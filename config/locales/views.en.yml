@@ -36,6 +36,9 @@ en:
         show:
           history: Transactions history
           date: Created at
+          receipt_date: Purchase date
+          receipt_items: Purchase details
+          payment_receipt: Proof of payment
         payment_method:
           cash: Cash
           debit: Debit

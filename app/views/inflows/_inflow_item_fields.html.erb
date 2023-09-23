@@ -1,146 +1,162 @@
 <div>
-  <div class="fields">
+  <div class="fields text-sm">
     <fieldset>
-      <div id="item-0">
-        <div class="quantity-0">
+      <div id="item-0" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="quantity-0 col-span-12 md:col-span-4 xl:col-span-3">
           <%= builder.input :quantity, input_html: {
             id: 'inflow_inflow_items_attributes_0_quantity',
-            name: 'inflow[inflow_items_attributes][0][quantity]'
+            name: 'inflow[inflow_items_attributes][0][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
             } %>
         </div>
-        <div class="product-id-0">
+        <div class="product-id-0 col-span-12 md:col-span-4 xl:col-span-2">
           <%= builder.input :product_id, collection: @products, input_html: {
               id: 'inflow_inflow_items_attributes_0_product_id',
-              name: 'inflow[inflow_items_attributes][0][product_id]'
+              name: 'inflow[inflow_items_attributes][0][product_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2'
               } %>
         </div>
-        <div  id="subtotal-0" >
+        <div  id="subtotal-0" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
           subtotal 0
         </div>
       </div>
 
-      <div id="item-1">
-        <div class="field quantity-1">
+      <div id="item-1" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="field quantity-1 col-span-12 md:col-span-4 xl:col-span-3">
           <%= builder.input :quantity, input_html: {
             id: 'inflow_inflow_items_attributes_1_quantity',
-            name: 'inflow[inflow_items_attributes][1][quantity]'
+            name: 'inflow[inflow_items_attributes][1][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
             } %>
         </div>
-        <div class="field product-id-1">
+        <div class="field product-id-1 col-span-12 md:col-span-4 xl:col-span-2">
           <%= builder.input :product_id, collection: @products, input_html: {
               id: 'inflow_inflow_items_attributes_1_product_id',
-              name: 'inflow[inflow_items_attributes][1][product_id]'
+              name: 'inflow[inflow_items_attributes][1][product_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2'
               } %>
         </div>
-        <div id="subtotal 1">
+        <div id="subtotal-1" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
           subtotal 1
         </div>
       </div>
 
-      <div id="item-2">
-        <div class="field quantity-2">
+      <div id="item-2" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="field quantity-2 col-span-12 md:col-span-4 xl:col-span-3">
           <%= builder.input :quantity, input_html: {
             id: 'inflow_inflow_items_attributes_2_quantity',
-            name: 'inflow[inflow_items_attributes][2][quantity]'
+            name: 'inflow[inflow_items_attributes][2][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
             } %>
         </div>
-        <div class="field product-id-2">
+        <div class="field product-id-2 col-span-12 md:col-span-4 xl:col-span-2">
           <%= builder.input :product_id, collection: @products, input_html: {
               id: 'inflow_inflow_items_attributes_2_product_id',
-              name: 'inflow[inflow_items_attributes][2][product_id]'
+              name: 'inflow[inflow_items_attributes][2][product_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2'
               } %>
         </div>
-        <div>
+        <div id="subtotal-2" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
           subtotal 2
         </div>
       </div>
 
-      <div id="item-3">
-        <div class="field quantity-3">
+      <div id="item-3" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="field quantity-3 col-span-12 md:col-span-4 xl:col-span-3">
           <%= builder.input :quantity, input_html: {
             id: 'inflow_inflow_items_attributes_3_quantity',
-            name: 'inflow[inflow_items_attributes][3][quantity]'
+            name: 'inflow[inflow_items_attributes][3][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
             } %>
         </div>
-        <div class="field product-id-3">
+        <div class="field product-id-3 col-span-12 md:col-span-4 xl:col-span-2">
           <%= builder.input :product_id, collection: @products, input_html: {
               id: 'inflow_inflow_items_attributes_3_product_id',
-              name: 'inflow[inflow_items_attributes][3][product_id]'
+              name: 'inflow[inflow_items_attributes][3][product_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2'
               } %>
         </div>
-        <div>
+        <div id="subtotal-3" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
           subtotal 3
         </div>
       </div>
 
-      <div id="item-4">
-        <div class="field quantity-4">
+      <div id="item-4" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="field quantity-4 col-span-12 md:col-span-4 xl:col-span-3">
           <%= builder.input :quantity, input_html: {
             id: 'inflow_inflow_items_attributes_4_quantity',
-            name: 'inflow[inflow_items_attributes][4][quantity]'
+            name: 'inflow[inflow_items_attributes][4][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
             } %>
         </div>
-        <div class="field product-id-4">
+        <div class="field product-id-4 col-span-12 md:col-span-4 xl:col-span-2">
           <%= builder.input :product_id, collection: @products, input_html: {
               id: 'inflow_inflow_items_attributes_4_product_id',
-              name: 'inflow[inflow_items_attributes][4][product_id]'
+              name: 'inflow[inflow_items_attributes][4][product_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2'
               } %>
         </div>
-        <div>
+        <div id="subtotal-4" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
           subtotal 4
         </div>
       </div>
 
-      <div id="item-5">
-        <div class="field quantity-5">
+      <div id="item-5" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="field quantity-5 col-span-12 md:col-span-4 xl:col-span-3">
           <%= builder.input :quantity, input_html: {
             id: 'inflow_inflow_items_attributes_5_quantity',
-            name: 'inflow[inflow_items_attributes][5][quantity]'
+            name: 'inflow[inflow_items_attributes][5][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
             } %>
         </div>
-        <div class="field product-id-5">
+        <div class="field product-id-5 col-span-12 md:col-span-4 xl:col-span-2">
           <%= builder.input :product_id, collection: @products, input_html: {
               id: 'inflow_inflow_items_attributes_5_product_id',
-              name: 'inflow[inflow_items_attributes][5][product_id]'
+              name: 'inflow[inflow_items_attributes][5][product_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2' 
               } %>
         </div>
-        <div>
+        <div id="subtotal-5" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
           subtotal 5
         </div>
       </div>
 
-      <div id="item-6">
-        <div class="field quantity-6">
+      <div id="item-6" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="field quantity-6 col-span-12 md:col-span-4 xl:col-span-3">
           <%= builder.input :quantity, input_html: {
             id: 'inflow_inflow_items_attributes_6_quantity',
-            name: 'inflow[inflow_items_attributes][6][quantity]'
+            name: 'inflow[inflow_items_attributes][6][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
             } %>
         </div>
-        <div class="field product-id-6">
+        <div class="field product-id-6 col-span-12 md:col-span-4 xl:col-span-2">
           <%= builder.input :product_id, collection: @products, input_html: {
               id: 'inflow_inflow_items_attributes_6_product_id',
-              name: 'inflow[inflow_items_attributes][6][product_id]'
+              name: 'inflow[inflow_items_attributes][6][product_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2'
               } %>
         </div>
-        <div>
+        <div id="subtotal-6" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
           subtotal 6
         </div>
       </div>
 
-      <div id="item-7">
-        <div class="field quantity-7">
+      <div id="item-7" class="grid grid-cols-12 my-3 gap-y-1">
+        <div class="field quantity-7 col-span-12 md:col-span-4 xl:col-span-3">
           <%= builder.input :quantity, input_html: {
             id: 'inflow_inflow_items_attributes_7_quantity',
-            name: 'inflow[inflow_items_attributes][7][quantity]'
+            name: 'inflow[inflow_items_attributes][7][quantity]',
+            class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2 w-36 xl:w-auto'
             } %>
         </div>
-        <div class="field product-id-7">
+        <div class="field product-id-7 col-span-12 md:col-span-4 xl:col-span-2">
           <%= builder.input :product_id, collection: @products, input_html: {
               id: 'inflow_inflow_items_attributes_7_product_id',
-              name: 'inflow[inflow_items_attributes][7][product_id]'
+              name: 'inflow[inflow_items_attributes][7][product_id]',
+              class: 'rounded-md shadow-sm border-gray-400 focus:ring-transparent mx-2'
               } %>
         </div>
-        <div>
+        <div id="subtotal-7" class="col-span-12 md:col-span-4 xl:col-span-4 self-center">
           subtotal 7
         </div>
       </div>
