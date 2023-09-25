@@ -1,4 +1,7 @@
-<div>
-	<h1><%= I18n.t('helpers.links.new_product') %></h1>
+<div class="ml-3 mt-1">
+	<%= render 'shared/notice', notice: notice %>
+
+	<h1 class="text-4xl font-medium mb-2"><%= I18n.t('helpers.links.new_product') %></h1>
+
 	<%= render 'form', product: @product %>
 </div>
