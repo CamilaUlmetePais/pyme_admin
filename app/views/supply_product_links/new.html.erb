@@ -1,5 +1,30 @@
-<div>
-	<h2><%= I18n.t('helpers.links.new_supply_product_link') %></h2>
+<div class="ml-3 mt-1">
+	<h1 class="text-4xl font-medium mb-2"><%= I18n.t('helpers.links.new_supply_product_link') %></h1>
 
-	<%= render 'form', supply_product_link: @supply_product_link %>
+	<%= simple_form_for(@supply_product_link, html: {}) do |f| %>
+		<%= f.error_notification %>
+		<div class="grid grid-cols-6 gap-2 m-2">
+			<div class="col-span-6 md:col-span-3 lg:col-span-2">
+				<%= f.input :product_id, collection: @products, input_html: { 
+					id: 'product_id', class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400' }, 
+					prompt: I18n.t('simple_form.prompts.defaults.product') %>
+			</div>
+			<div class="col-span-6 md:col-span-3">
+				<%= f.input :supply_id, collection: @supplies, input_html: { 
+					id: 'supply_id', class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'}, 
+					prompt: I18n.t('simple_form.prompts.defaults.supply') %>
+			</div>
+		</div>
+
+		<div class="grid grid-cols-12 m-3 gap-2">
+			<div class="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-4">
+				<button type="button" class="p-3 bg-white hover:bg-gray-100 border border-gray-400 rounded-md shadow-sm font-medium">
+					<%= link_to I18n.t('helpers.buttons.back'), supply_product_links_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
+				</button>
+			</div>
+			<div class="col-span-12 md:col-span-4 place-content-end">
+				<%= f.button :submit, class: "p-3 bg-blue-700 hover:bg-blue-800 rounded-md shadow-sm font-medium text-white" %>
+			</div>
+		</div>
+	<% end %>
 </div>

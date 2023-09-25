@@ -1,27 +1,35 @@
-<div>
+<div class="m-3">
   <%= render 'shared/notice', notice: notice %>
   <%= render 'shared/alert', alert: alert %>
 
-  <h2><%= I18n.t('activerecord.models.supply_product_link.other') %></h2>
-   
-  <button type='button'>
-    <%= link_to I18n.t('helpers.links.new_supply_product_link'), new_supply_product_link_path %>
-  </button>
+  <div class="w-full">
+    <div class="w-full md:w-2/3 lg:w-7/12 xl:w-5/12 inline-block mb-2">
+      <h1 class="text-2xl md:text-4xl font-medium"><%= I18n.t('activerecord.models.supply_product_link.other') %></h1>
+    </div>
+    <div class="inline-block mb-2">
+      <button type="button" class="p-3 bg-blue-700 hover:bg-blue-800 rounded-md shadow-sm font-medium text-white">
+        <%= link_to I18n.t('helpers.links.new_supply_product_link'), new_supply_product_link_path %>
+      </button>
+    </div>
+  </div>
   
-  <table>
+  <table class="table-auto w-7/8 m-2 p-2">
     <thead>
-      <tr>
-        <th><%= I18n.t('activerecord.attributes.supply_product_links.product_id') %></th>
-        <th><%= I18n.t('activerecord.attributes.supply_product_links.supply_id') %></th>
+      <tr class="border border-gray-200 bg-gray-200  text-center text-xs text-gray-600 uppercase">
+        <th class="py-2 md:px-6"><%= I18n.t('activerecord.attributes.supply_product_links.product_id') %></th>
+        <th class="py-2 md:px-6"><%= I18n.t('activerecord.attributes.supply_product_links.supply_id') %></th>
+        <th colspan="1"></th>
       </tr>
     </thead>
     <tbody>
       <% @supply_product_links.each do |supply_product_link| %>
         <tr>
-          <td><%= Product.find(supply_product_link.product_id).name %></td>
-          <td><%= Product.find(supply_product_link.supply_id).name %></td>
+          <td class="text-xs md:text-sm text-center"><%= Product.find(supply_product_link.product_id).name %></td>
+          <td class="text-xs md:text-sm text-center"><%= Product.find(supply_product_link.supply_id).name %></td>
           <td>
-            <%= button_to I18n.t('helpers.buttons.destroy'), supply_product_link, method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }%>
+            <div class="m-1 p-1 md:p-2 bg-red-600 hover:bg-red-700 rounded-md shadow-sm text-xs text-white">
+              <%= button_to I18n.t('helpers.buttons.destroy'), supply_product_link, method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }%>
+            </div>
           </td>
         </tr>
       <% end %>

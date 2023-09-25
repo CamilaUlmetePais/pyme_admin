@@ -65,7 +65,7 @@ en:
       new_reminder: New Reminder
       new_supplier: New Supplier
       new_supply: New Supply
-      new_supply_product_link: New Supply-Product links
+      new_supply_product_link: New Supply-Product link
     search:
       by_date: 'Search by date:'
       from: Date from
