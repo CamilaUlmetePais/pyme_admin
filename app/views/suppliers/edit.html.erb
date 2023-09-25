@@ -1,5 +1,9 @@
-<div>
-	<h1><%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.supplier.one') ) %></h1>
+<div class="ml-3 mt-1">
+	<%= render 'shared/notice', notice: notice %>
+
+	<h1 class="text-4xl font-medium mb-2">
+		<%= I18n.t('views.headers.edit', model: I18n.t('activerecord.models.supplier.one') ) %>
+	</h1>
 
 	<%= render 'form', supplier: @supplier %>
 </div>
