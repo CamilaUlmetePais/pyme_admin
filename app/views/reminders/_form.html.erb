@@ -1,21 +1,30 @@
-<%= simple_form_for(@reminder, as: :reminder, html: { class: 'form-vertical' },
-    method: :post, url: reminders_path ) do |f| %>
-	<div>
+<%= simple_form_for(@reminder, html: {}) do |f| %>
+	<div class="m-3">
 		<%= f.error_notification %>
-		<%= f.input :title  %>
-		<%= f.input :text %>
-		<%= f.input :due_date, as: :datetime %>
-		<%= f.input :done %>
+		<div>
+			<div class="m-1 inline-block">
+				<%= f.input :title, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'} %>
+			</div>
+			<div class="m-1 inline-block">
+				<%= f.input :done, input_html: {class: 'w-6 h-6 rounded-xl shadow-sm focus:ring-transparent mx-2 border-gray-400'} %>
+			</div>
+		</div>
+		<div class="m-1">
+			<%= f.input :text, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400 '}  %>
+		</div>
+		<div class="m-1">
+			<%= f.input :due_date, as: :datetime, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'}  %>
+		</div>
 	</div>
 
-	<div>
-		<div>
-			<button type="button">
-        <%= link_to I18n.t('helpers.buttons.back'), reminders_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
-      </button>
+	<div class="grid grid-cols-12">
+		<div class="col-span-6 md:col-span-8 lg:col-span-6 xl:col-span-4">
+			<button type="button" class="p-3 bg-white hover:bg-gray-100 border border-gray-400 rounded-md shadow-sm font-medium">
+				<%= link_to I18n.t('helpers.buttons.back'), reminders_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
+			</button>
 		</div>
-		<div>
-      <%= f.button :submit %>
+		<div class="col-span-2 place-content-end">
+      <%= f.button :submit, class: "p-3 bg-blue-700 hover:bg-blue-800 rounded-md shadow-sm font-medium text-white" %>
 		</div>
 	</div>
 <% end %>

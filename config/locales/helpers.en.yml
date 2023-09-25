@@ -4,7 +4,8 @@ en:
       add: Add new item
       are_you_sure: Are you sure?
       back: Back
-      destroy: Destroy
+      destroy: Delete
+      destroy_all: Delete all
       edit: Edit
       expand: Add Items
       remove: Remove

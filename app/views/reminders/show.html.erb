@@ -3,29 +3,32 @@
 		<%= render 'shared/notice', notice: notice %>
 	</div>
 
-	<div>
+	<div class="md:w-5/12 w-full m-2 p-2 bg-gray-100 hover:bg-gray-200 border border-gray-200 rounded-md shadow-sm inline-block">
+		<div class="inline-block w-5/6 font-medium text-lg">
+			<%= @reminder.title.capitalize %>
+		</div>
+		<div class="inline-block">
+			<%= checkbox(@reminder.done) %>
+		</div>
 		<div>
-			<div>
-			  <div><h4><%= @reminder.title %></h4></div>
-			  <div>
-			    <p><%= @reminder.text %></p>
-			    <p><%= I18n.t('activerecord.attributes.reminders.due_date') %>:
-			    	<%= I18n.l(@reminder.due_date, format: :short) %></p>
-			    <p><%= I18n.t('activerecord.attributes.reminders.done')%> <%=checkbox(@reminder.done) %></p>
-			  </div>
-			</div>
+			<span class="text-gray-600 text-xs uppercase">
+			<%= I18n.t('activerecord.attributes.reminders.due_date')%>: </span>
+			<span class="text-sm"><%= I18n.l(@reminder.due_date, format: :short) %></span>
+		</div>
+		<div class="text-sm m-1">
+			<%= @reminder.text.capitalize %>
 		</div>
 	</div>
 
-	<div>
-		<div>
-			<button type="button">
-				<%= link_to I18n.t('helpers.buttons.edit'), edit_reminder_path(@reminder) %>
+	<div class="grid grid-cols-12 m-2">
+		<div class="col-span-10 md:col-span-4">
+			<button type="button" class="p-3 bg-white hover:bg-gray-100 border border-gray-400 rounded-md shadow-sm font-medium">
+				<%= link_to I18n.t('helpers.buttons.back'), reminders_path %>
 			</button>
 		</div>
-		<div>
-			<button type="button">
-				<%= link_to I18n.t('helpers.buttons.back'), reminders_path %>
+		<div class="col-span-2 md:col-span-6">
+			<button type="button" class="m-1 p-3 bg-green-600 hover:bg-green-700 rounded-md shadow-sm text-white">
+				<%= link_to I18n.t('helpers.buttons.edit'), edit_reminder_path(@reminder) %>
 			</button>
 		</div>
 	</div>
