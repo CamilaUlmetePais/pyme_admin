@@ -23,7 +23,7 @@
     </thead>
     <tbody>
       <% @supply_product_links.each do |supply_product_link| %>
-        <tr>
+        <tr class="border border-gray-200 bg-gray-100 hover:bg-gray-200">
           <td class="text-xs md:text-sm text-center"><%= Product.find(supply_product_link.product_id).name %></td>
           <td class="text-xs md:text-sm text-center"><%= Product.find(supply_product_link.supply_id).name %></td>
           <td>

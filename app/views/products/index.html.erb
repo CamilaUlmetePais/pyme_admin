@@ -34,7 +34,7 @@
 
     <tbody>
       <% @products.order(name: :asc).each do |product| %>
-        <tr>
+        <tr class="border border-gray-200 bg-gray-100 hover:bg-gray-200">
           <td class="text-xs md:text-sm text-center"><%= product.name %></td>
           <td class="text-xs md:text-sm text-center">$<%= number_with_precision(product.price, strip_insignificant_zeros: true)%></td>
           <td class="text-xs md:text-sm text-center">

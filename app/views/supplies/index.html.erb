@@ -25,12 +25,12 @@
 
 		<tbody>
 			<% @supplies.order(name: :asc).each do |supply| %>
-				<tr>
-					<td class="text-xs md:text-sm"><%= supply.name %></td>
-					<td class="text-xs md:text-sm">
+				<tr class="border border-gray-200 bg-gray-100 hover:bg-gray-200">
+					<td class="text-center text-xs md:text-sm"><%= supply.name %></td>
+					<td class="text-center text-xs md:text-sm">
 						$<%= number_with_precision(supply.price, strip_insignificant_zeros: true) %>
 					</td>
-					<td class="text-xs md:text-sm">
+					<td class="text-center text-xs md:text-sm">
 						<%= number_with_precision(supply.stock, strip_insignificant_zeros: true) %> <%= supply.unit.upcase %></td>
 					<td>
 						<button type="button" class="m-1 p-1 md:p-2 bg-blue-500 hover:bg-blue-600 rounded-md shadow-sm text-xs text-white">
