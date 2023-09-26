@@ -1,67 +1,54 @@
-<div>
-  <h1><%= I18n.t('views.headers.pages.take') %></h1>
-
+<div class="m-3">
+  <!-- Header and datepicker -->
   <div>
-    <%= simple_form_for(:pages, html: {}, url: take_path , method: :get) do |f| %>
-      <%= f.error_notification %>
-      <div>
-        <%= f.input :date, id: 'date', placeholder: I18n.t('helpers.search.date')%>
-      </div>
-      <%= f.button :submit, I18n.t('helpers.buttons.search') %>
-    <% end %>
+    <h1 class="mr-12 self-center text-4xl font-medium inline-block"><%= I18n.t('views.headers.pages.take') %></h1>
+
+    <div class="inline-block w-fit p-2 m-2 bg-gray-200 border border-solid border-gray-300 rounded-md text-sm">
+      <%= simple_form_for(:pages, html: {class: "inline-flex flex-wrap items-center justify-between"}, url: take_path , method: :get) do |f| %>
+        <%= f.error_notification %>
+        <div class="p-1 place-self-center">
+          <%= f.input :date, as: :date, id: 'date', placeholder: I18n.t('helpers.search.date'), label_html: {class: "pr-1 text-sm xl:text-md"}, input_html: {class: "rounded-md border-gray-400 w-36 mx-3"}%>
+        </div>
+        <%= f.button :submit, I18n.t('helpers.buttons.search'), class: "p-2.5 mr-2 bg-blue-500 hover:bg-blue-600 rounded-md shadow-sm font-medium text-white" %>
+      <% end %>
+    </div>
   </div>
+  
+  <div class="grid grid-cols-12">
+    <!-- Inflows -->
+    <div class="col-span-12 lg:col-span-4 my-3">
+      <div class="m-2 p-3 w-11/12 bg-green-500 border-green-600 rounded-md shadow-sm">
+        <h4 class="text-white text-center text-3xl">
+          <span class="font-medium"><%= I18n.t('activerecord.models.inflow.other') %>: </span>
+          $<%= number_with_precision(@variables[:inflow_total], strip_insignificant_zeros: true) %>
+        </h4>
+      </div>
+      <div class="m-2 p-3 w-11/12 bg-green-500 border-green-600 rounded-md shadow-sm">
+        <h4 class="text-white text-center text-3xl">
+          <span class="font-medium"><%= I18n.t('views.body.pages.take.cash_inflows') %>: </span>
+          $<%= number_with_precision(@variables[:cash_inflows].sum('total'), strip_insignificant_zeros: true) %>
+        </h4>
+      </div>
 
-  <div class='row'>
-      <h4><%= I18n.t('activerecord.models.inflow.other') %>: $<%= @variables[:inflow_total] %></h4>
 
-      <h4 class="card-title"><%= I18n.t('views.body.pages.take.cash_inflows') %>: $<%= @variables[:cash_inflows].sum('total') %></h4>
-
-      <table>
+      <table class="table-auto p-2 mx-2 w-11/12">
         <thead>
-          <tr>
-            <th><%= I18n.t('activerecord.attributes.inflows.total') %></th>
-            <th><%= I18n.t('views.body.index.items') %></th>
+          <tr class="border border-gray-200 bg-gray-200 text-center text-sm text-gray-600 uppercase">
+            <th class="p-3"><%= I18n.t('activerecord.attributes.inflows.total') %></th>
+            <th class="p-3"><%= I18n.t('views.body.index.items') %></th>
             <th colspan="3"></th>
           </tr>
         </thead>
 
         <tbody>
           <% @variables[:cash_inflows].each do |inflow| %>
-            <tr>
-              <td>$ <%= inflow.total %></td>
+            <tr class="border border-gray-200 bg-gray-100 hover:bg-gray-200 text-sm md:text-md text-center">
+              <td>$ <%= number_with_precision(inflow.total, strip_insignificant_zeros: true) %></td>
               <td>
                 <% inflow.items.each do |item| %>
-                  <span><%= item.list %></span>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-
-    <div>
-      <h4><%= I18n.t('activerecord.models.outflow.other') %>: $<%= @variables[:outflow_total] %></h4>
-
-      <h4><%= I18n.t('views.body.pages.take.cash_outflows') %>: $<%= @variables[:cash_outflows].sum('total') %></h4>
-
-      <table>
-        <thead>
-          <tr>
-            <th><%= I18n.t('activerecord.attributes.outflows.total') %></th>
-            <th><%= I18n.t('activerecord.attributes.outflows.supplier_id') %></th>
-            <th><%= I18n.t('views.body.index.items') %></th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @variables[:cash_outflows].each do |outflow| %>
-            <tr>
-              <td>$<%= outflow.total %></td>
-              <td><%= outflow.supplier.name %></td>
-              <td>
-                <% outflow.items.each do |item| %>
-                  <span><%= item.list %></span>
+                  <span class="inline-block m-1 px-2 py-1 bg-green-500 rounded-md shadow-sm text-white">
+                    <%= item.list %>
+                  </span>
                 <% end %>
               </td>
             </tr>
@@ -70,10 +57,63 @@
       </table>
     </div>
 
-    <div>
-      <h4 class="card-title"><%= I18n.t('views.body.pages.take.balance') %>: $<%= @variables[:inflow_total] - @variables[:outflow_total] %></h4>
-            
-      <h4 class="card-title"><%= I18n.t('views.body.pages.take.cash_total') %>: $<%= @variables[:cash_inflows].sum('total') - @variables[:cash_outflows].sum('total') %></h4>
+    <!-- Outflows -->
+    <div class="col-span-12 lg:col-span-4 my-3">
+      <div class="m-2 p-3 w-11/12 bg-red-500 border-red-600 rounded-md shadow-sm">
+        <h4 class="text-white text-center text-3xl">
+          <span class="font-medium"><%= I18n.t('activerecord.models.outflow.other') %>: </span>
+          $<%= number_with_precision(@variables[:outflow_total], strip_insignificant_zeros: true) %>
+        </h4>
+      </div>
+      <div class="m-2 p-3 w-11/12 bg-red-500 border-red-600 rounded-md shadow-sm">
+        <h4 class="text-white text-center text-3xl">
+          <span class="font-medium"><%= I18n.t('views.body.pages.take.cash_outflows') %>: </span>
+          $<%= number_with_precision(@variables[:cash_outflows].sum('total'), strip_insignificant_zeros: true) %>
+        </h4>
+      </div>
+
+      <table class="table-auto p-2 mx-2 w-11/12">
+        <thead>
+          <tr class="border border-gray-200 bg-gray-200 text-center text-sm text-gray-600 uppercase">
+            <th class="p-3"><%= I18n.t('activerecord.attributes.outflows.total') %></th>
+            <th class="p-3"><%= I18n.t('activerecord.attributes.outflows.supplier_id') %></th>
+            <th class="p-3"><%= I18n.t('views.body.index.items') %></th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @variables[:cash_outflows].each do |outflow| %>
+            <tr class="border border-gray-200 bg-gray-100 hover:bg-gray-200 text-sm md:text-md text-center">
+              <td>$<%= number_with_precision(outflow.total, strip_insignificant_zeros: true) %></td>
+              <td><%= outflow.supplier.name %></td>
+              <td>
+                <% outflow.items.each do |item| %>
+                  <span class="inline-block m-1 px-2 py-1 bg-red-500 rounded-md shadow-sm text-white">
+                    <%= item.list %>
+                  </span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Balance and cash total -->
+    <div class="col-span-12 lg:col-span-4 my-3">
+      <div class="m-2 p-3 w-11/12 bg-blue-500 border-blue-600 rounded-md shadow-sm">
+        <h4 class="text-white text-center text-3xl">
+          <span class="font-medium"><%= I18n.t('views.body.pages.take.balance') %>: </span>
+          $<%= number_with_precision(@variables[:inflow_total] - @variables[:outflow_total], strip_insignificant_zeros: true) %>
+        </h4>
+      </div>
+      <div class="m-2 p-3 w-11/12 bg-blue-500 border-blue-600 rounded-md shadow-sm">
+        <h4 class="text-white text-center text-3xl">
+          <span class="font-medium"><%= I18n.t('views.body.pages.take.cash_total') %>: </span>
+          $<%= number_with_precision(@variables[:cash_inflows].sum('total') - @variables[:cash_outflows].sum('total'), strip_insignificant_zeros: true) %>
+        </h4>
+      </div>
     </div>
   </div>
 </div>
