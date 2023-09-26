@@ -13,15 +13,15 @@
         <li><%= link_to I18n.t('activerecord.models.reminder.other'), reminders_path %>
         <li><%= link_to I18n.t('activerecord.models.supply.other'), supplies_path %></li>
         <li><%= link_to	I18n.t('activerecord.models.product.other'), products_path %></li>
+        <% if current_user.role >= 1 #cashier %>
+          <li><%= link_to I18n.t('views.headers.pages.take'), take_path %></li>
+        <% end %>
         <% if current_user.role >= 3 #supervisor %>
           <li><%= link_to I18n.t('activerecord.models.supply_product_link.other'), supply_product_links_path %></li>
         <% end %>
         <% if current_user.role >= 4 #owner %>
           <li><%= link_to I18n.t('activerecord.models.supplier.other'), suppliers_path %></li>
           <li><%= link_to I18n.t('views.headers.pages.statistics'), statistics_path %></li>
-        <% end %>
-        <% if current_user.role >= 1 #cashier %>
-          <li><%= link_to I18n.t('views.headers.pages.take'), take_path %></li>
         <% end %>
       <% end %>
       <div class="inline-flex">
