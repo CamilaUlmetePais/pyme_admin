@@ -2,31 +2,31 @@
   <div class="m-3">
     <%= f.error_notification %>
     <div>
-      <div class="mb-2 grid grid-cols-6">
-        <div class="m-1 col-span-6 xl:col-span-2">
-          <%= f.input :name, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'} %>
+      <div class="mb-2">
+        <div class="m-1">
+          <%= f.input :name, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'}, label_html: {class:'block my-1'} %>
         </div>
-        <div class="m-1 col-span-6 xl:col-span-3">
-          <%= f.input :price, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'} %>
+        <div class="m-1">
+          <%= f.input :price, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'}, label_html: {class:'block my-1'} %>
         </div>
       </div>
-      <div class="mb-2 grid grid-cols-6">
-        <div class="m-1 col-span-6 xl:col-span-2">
+      <div class="mb-2">
+        <div class="m-1">
           <%= f.input :unit, collection: [
               [ I18n.t('views.body.unit.kg'), :kg], 
               [ I18n.t('views.body.unit.u'), :u],
               [ I18n.t('views.body.unit.ars'), :ars]
-            ], prompt: I18n.t('simple_form.prompts.defaults.unit'), input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'} %>
+            ], prompt: I18n.t('simple_form.prompts.defaults.unit'), input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'}, label_html: {class:'block my-1'} %>
         </div>
-        <div class="m-1 col-span-6 xl:col-span-3">
-          <%= f.input :stock, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'} %>
+        <div class="m-1">
+          <%= f.input :stock, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'}, label_html: {class:'block my-1'} %>
         </div>
       </div>
     </div>
   </div>
 
   <div class="grid grid-cols-12 m-3">
-		<div class="col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-6">
+		<div class="col-span-6 md:col-span-4 lg:col-span-3 xl:col-span-2">
 			<button type="button" class="p-3 bg-white hover:bg-gray-100 border border-gray-400 rounded-md shadow-sm font-medium">
 				<%= link_to I18n.t('helpers.buttons.back'), supplies_path, data: { confirm: I18n.t('helpers.buttons.are_you_sure')} %>
 			</button>

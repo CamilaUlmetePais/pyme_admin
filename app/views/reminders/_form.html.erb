@@ -3,17 +3,17 @@
 		<%= f.error_notification %>
 		<div>
 			<div class="m-1 inline-block">
-				<%= f.input :title, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'} %>
+				<%= f.input :title, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent border-gray-400'}, label_html: { class: 'block my-1' } %>
 			</div>
 			<div class="m-1 inline-block">
 				<%= f.input :done, input_html: {class: 'w-6 h-6 rounded-xl shadow-sm focus:ring-transparent mx-2 border-gray-400'} %>
 			</div>
 		</div>
 		<div class="m-1">
-			<%= f.input :text, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400 '}  %>
+			<%= f.input :text, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent border-gray-400'}, label_html: { class: 'block my-1' } %>
 		</div>
 		<div class="m-1">
-			<%= f.input :due_date, as: :datetime, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'}  %>
+			<%= f.input :due_date, as: :datetime, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent border-gray-400'}, label_html: { class: 'block my-1' } %>
 		</div>
 	</div>
 

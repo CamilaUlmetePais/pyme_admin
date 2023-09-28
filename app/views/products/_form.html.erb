@@ -1,24 +1,24 @@
 <%= simple_form_for(@product, html: {}) do |f| %>
 
-  <div class="m-3 grid lg:w-1/5 w-1/3">
+  <div class="m-3">
     <%= f.error_notification %>
     <div class="m-2">
-      <%= f.input :name, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'} %>
+      <%= f.input :name, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'}, label_html: {class:'block my-1'} %>
     </div>
     <div class="m-2">
-      <%= f.input :price, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'} %>
+      <%= f.input :price, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'}, label_html: {class:'block my-1'} %>
     </div>
     <div class="m-2">
       <%= f.input :unit, collection: [
           [ I18n.t('views.body.unit.kg'), :kg], 
           [ I18n.t('views.body.unit.u'), :u]
-        ], prompt: I18n.t('simple_form.prompts.defaults.unit'), input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400 w-full'} %>
+        ], prompt: I18n.t('simple_form.prompts.defaults.unit'), input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'}, label_html: {class:'block my-1'} %>
     </div>
     <div class="m-2">
-      <%= f.input :stock, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'} %>
+      <%= f.input :stock, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'}, label_html: {class:'block my-1'} %>
     </div>
     <div class="m-2">
-      <%= f.input :notification_threshold, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'} %>
+      <%= f.input :notification_threshold, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'}, label_html: {class:'block my-1'} %>
     </div>
   </div>
 
