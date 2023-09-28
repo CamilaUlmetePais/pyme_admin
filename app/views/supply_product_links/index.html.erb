@@ -27,8 +27,8 @@
           <td class="text-xs md:text-sm text-center"><%= Product.find(supply_product_link.product_id).name %></td>
           <td class="text-xs md:text-sm text-center"><%= Product.find(supply_product_link.supply_id).name %></td>
           <td>
-            <div class="m-1 p-1 md:p-2 bg-red-600 hover:bg-red-700 rounded-md shadow-sm text-xs text-white">
-              <%= button_to I18n.t('helpers.buttons.destroy'), supply_product_link, method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }%>
+            <div>
+              <%= button_to I18n.t('helpers.buttons.destroy'), supply_product_link, method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }, class: 'm-1 p-1 md:p-2 bg-red-600 hover:bg-red-700 rounded-md shadow-sm text-xs text-white' %>
             </div>
           </td>
         </tr>

@@ -79,8 +79,8 @@
               </button>
             </td>
             <td>
-              <div class="p-2 w-16 bg-red-600 hover:bg-red-700 rounded-md shadow-sm text-xs text-white">
-                <%= button_to I18n.t('helpers.buttons.destroy'), outflow, method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }%>
+              <div>
+                <%= button_to I18n.t('helpers.buttons.destroy'), outflow, method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }, class: 'm-1 p-2 bg-red-600 hover:bg-red-700 rounded-md shadow-sm text-xs text-white' %>
               </div>
             </td>
           </tr>
@@ -149,8 +149,8 @@
             <button type='button' class="m-1 p-2 bg-green-600 rounded-md shadow-sm text-xs text-white">
               <%= link_to I18n.t('helpers.buttons.edit'), edit_outflow_path(outflow) %>
             </button>
-            <div class="inline-flex m-1 p-2 w-16 bg-red-600 rounded-md shadow-sm text-xs text-white">
-              <%= button_to I18n.t('helpers.buttons.destroy'), outflow, method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') } %>
+            <div class="inline-block">
+              <%= button_to I18n.t('helpers.buttons.destroy'), outflow, method: :delete, data: { turbo_method: :delete, turbo_confirm: I18n.t('helpers.buttons.are_you_sure') }, class: 'm-1 p-2 bg-red-600 hover:bg-red-700 rounded-md shadow-sm text-xs text-white' %>
             </div>
           </div>
         </div>
