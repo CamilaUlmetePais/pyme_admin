@@ -1,37 +1,56 @@
-<h2><%= I18n.t('devise.views.edit') %> <%= resource_name.to_s.humanize %></h2>
+<div class="mt-1 ml-3"> 
+  <h1 class="text-4xl font-medium mb-2"><%= I18n.t('devise.views.edit') %> <%= resource_name.to_s.humanize %></h1>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name, required: true, autofocus: true %>
+    <div class="form-inputs">
+      <%= f.input :name, required: true, autofocus: true, label_html: { class:'block my-1' }, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'} %>
 
-    <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :email, required: true, autofocus: true, label_html: { class:'block my-1' }, input_html: {class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400'} %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p><%= I18n.t('devise.views.waiting_confirmation') %>: <%= resource.unconfirmed_email %></p>
-    <% end %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p><%= I18n.t('devise.views.waiting_confirmation') %>: <%= resource.unconfirmed_email %></p>
+      <% end %>
 
-    <%= f.input :password,
-                hint: I18n.t('devise.views.leave_it_blank') ,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: I18n.t('devise.views.current_password') ,
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-  </div>
+      <div class="my-2">
+        <%= f.input :password,
+                    hint: I18n.t('devise.views.leave_it_blank') ,
+                    hint_html: { class: 'block text-gray-500 text-xs ml-4' },
+                    required: false,
+                    label_html: { class:'block my-1' },
+                    input_html: { autocomplete: "new-password", 
+                                  class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400' } %>
+      </div>
+      <div class="my-2">
+        <%= f.input :password_confirmation,
+                    required: false,
+                    label_html: { class:'block my-1' },
+                    input_html: { autocomplete: "new-password", 
+                                  class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400' } %>
+      </div>
+      <div class="my-2">
+        <%= f.input :current_password,
+                    hint: I18n.t('devise.views.current_password') ,
+                    hint_html: { class: 'block text-gray-500 text-xs ml-4' },
+                    required: true,
+                    label_html: { class:'block my-1' },
+                    input_html: { autocomplete: "current-password", 
+                                  class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400' } %>
+      </div>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, I18n.t('devise.views.update') %>
-  </div>
-<% end %>
+      <div class="inline-block mr-32">
+        <button type="button" class="p-3 bg-white hover:bg-gray-100 border border-gray-400 rounded-md shadow-sm font-medium">
+          <%= link_to I18n.t('helpers.buttons.back'), :back %>
+        </button>
+      </div>
+      <div class="form-actions inline-block">
+        <%= f.button :submit, I18n.t('devise.views.update'), class: "p-3 bg-blue-700 hover:bg-blue-800 rounded-md shadow-sm font-medium text-white" %>
+      </div>
+      
+  <% end %>
 
-<h3><%= I18n.t('devise.views.cancel_account') %></h3>
+  <%= button_to I18n.t('devise.views.cancel_account') , registration_path(resource_name), data: { confirm: I18n.t('helpers.buttons.are_you_sure'), turbo_confirm: "Are you sure?" }, method: :delete, class: 'mt-12 p-3 bg-red-600 hover:bg-red-700 rounded-md shadow-sm font-medium text-white' %>
 
-<%= button_to I18n.t('devise.views.cancel_account') , registration_path(resource_name), data: { confirm: I18n.t('helpers.buttons.are_you_sure'), turbo_confirm: "Are you sure?" }, method: :delete %>
-
-<%= link_to I18n.t('helpers.buttons.back') , :back %>
+  

@@ -1,26 +1,39 @@
-<h2><%= I18n.t('devise.views.sign_up') %></h2>
+<div class="ml-3 mt-1">
+  <h1 class="text-4xl font-medium mb-2"><%= I18n.t('devise.views.sign_up') %></h1>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name, required: true, autofocus: true %>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
+    <div class="form-inputs my-2">
+      <%= f.input :name, required: true, autofocus: true, 
+                          label_html: { class:'block my-1' }, 
+                          input_html: { class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400' } %>
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  label_html: { class:'block my-1' },
+                  input_html: { autocomplete: "email", class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400' }%>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  hint_html: { class: 'block text-gray-500 text-xs ml-4' },
+                  label_html: { class:'block my-1' },
+                  input_html: { autocomplete: "new-password", class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400' } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  label_html: { class:'block my-1' },
+                  input_html: { autocomplete: "new-password", class: 'rounded-md shadow-sm focus:ring-transparent mx-2 border-gray-400' } %>
+    </div>
 
-  <!--div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div-->
-<% end %>
+    <div class="inline-block mt-3 mr-32">
+        <button type="button" class="p-3 bg-white hover:bg-gray-100 border border-gray-400 rounded-md shadow-sm font-medium">
+          <%= link_to I18n.t('helpers.buttons.back'), :back %>
+        </button>
+      </div>
+      <div class="form-actions inline-block">
+        <%= f.button :submit, I18n.t('devise.views.sign_up'), class: "p-3 bg-blue-700 hover:bg-blue-800 rounded-md shadow-sm font-medium text-white" %>
+      </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
