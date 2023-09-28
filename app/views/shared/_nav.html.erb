@@ -6,22 +6,40 @@
   <div id="navbar-collapse" class="inline-flex">
     <ul class="inline-flex align-middle space-x-4 xl:text-lg lg:text-md text-xs">
       <% if user_signed_in? %>
-        <li><%= link_to I18n.t('activerecord.models.inflow.other'), inflows_path %></li>
+        <li class="hover:text-blue-300">
+          <%= link_to I18n.t('activerecord.models.inflow.other'), inflows_path %>
+        </li>
         <% if current_user.role >= 2 #manager %>
-          <li><%= link_to	I18n.t('activerecord.models.outflow.other'), outflows_path %></li>
+          <li class="hover:text-blue-300">
+            <%= link_to	I18n.t('activerecord.models.outflow.other'), outflows_path %>
+          </li>
         <% end %>
-        <li><%= link_to I18n.t('activerecord.models.reminder.other'), reminders_path %>
-        <li><%= link_to I18n.t('activerecord.models.supply.other'), supplies_path %></li>
-        <li><%= link_to	I18n.t('activerecord.models.product.other'), products_path %></li>
+        <li class="hover:text-blue-300">
+          <%= link_to I18n.t('activerecord.models.reminder.other'), reminders_path %>
+        </li>
+        <li class="hover:text-blue-300">
+          <%= link_to I18n.t('activerecord.models.supply.other'), supplies_path %>
+        </li>
+        <li class="hover:text-blue-300">
+          <%= link_to	I18n.t('activerecord.models.product.other'), products_path %>
+        </li>
         <% if current_user.role >= 1 #cashier %>
-          <li><%= link_to I18n.t('views.headers.pages.take'), take_path %></li>
+          <li class="hover:text-blue-300">
+            <%= link_to I18n.t('views.headers.pages.take'), take_path %>
+          </li>
         <% end %>
         <% if current_user.role >= 3 #supervisor %>
-          <li><%= link_to I18n.t('activerecord.models.supply_product_link.other'), supply_product_links_path %></li>
+          <li class="hover:text-blue-300">
+            <%= link_to I18n.t('activerecord.models.supply_product_link.other'), supply_product_links_path %>
+          </li>
         <% end %>
         <% if current_user.role >= 4 #owner %>
-          <li><%= link_to I18n.t('activerecord.models.supplier.other'), suppliers_path %></li>
-          <li><%= link_to I18n.t('views.headers.pages.statistics'), statistics_path %></li>
+          <li class="hover:text-blue-300">
+            <%= link_to I18n.t('activerecord.models.supplier.other'), suppliers_path %>
+          </li>
+          <li class="hover:text-blue-300">
+            <%= link_to I18n.t('views.headers.pages.statistics'), statistics_path %>
+          </li>
         <% end %>
       <% end %>
       <div class="inline-flex">
@@ -33,11 +51,11 @@
       </div>
       <div class="inline-flex space-x-4">
         <% if user_signed_in? %>
-          <%= link_to I18n.t('devise.views.edit'), edit_user_registration_path %>
-          <%= button_to I18n.t('devise.views.logout'), destroy_user_session_path, method: :delete %>
+          <%= link_to I18n.t('devise.views.edit'), edit_user_registration_path, class: "hover:text-blue-300" %>
+          <%= button_to I18n.t('devise.views.logout'), destroy_user_session_path, method: :delete, class: "hover:text-blue-300" %>
         <% else %>
-          <%= link_to I18n.t('devise.views.login'), new_user_session_path %>
-          <%# link_to I18n.t('devise.views.sign_up'), new_user_registration_path %>
+          <%= link_to I18n.t('devise.views.login'), new_user_session_path, class: "hover:text-blue-300" %>
+          <%= link_to I18n.t('devise.views.sign_up'), new_user_registration_path, class: "hover:text-blue-300" %>
         <% end %>
       </div>
     </ul>

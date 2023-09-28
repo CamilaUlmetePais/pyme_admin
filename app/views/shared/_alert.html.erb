@@ -1,7 +1,6 @@
 <% if alert %>
-  <br>
-  <div class="" >
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <h5><p id="alert"><%= alert['message'] %></p></h5>
+  <div class="flex my-1 mx-2 p-3 w-full lg:w-1/2 bg-red-500 rounded-md shadow-sm font-medium text-white" >
+    <p id="alert" class="w-11/12"><%= alert['message'] %></p>
+    <button type="close" class="close flex w-1/12 place-self-end" data-dismiss="alert">&times;</button>
   </div>
 <% end %>
